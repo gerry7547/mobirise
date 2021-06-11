@@ -6311,6 +6311,11 @@ a {
     padding: 0 2rem;
   }
 }
+@media (max-width: 992px) {
+  .cid-szV8kICfhc img:last-child {
+    margin-bottom: 3rem;
+  }
+}
 .cid-szV8j5HoxE {
   padding-top: 4rem;
   padding-bottom: 2rem;
