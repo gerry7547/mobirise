@@ -1209,70 +1209,20 @@ a {
   width: 100%;
   object-fit: cover;
 }
-.cid-szN7dOIhHz {
-  padding-top: 4rem;
-  padding-bottom: 4rem;
-  background-image: url("../../../assets/images/hdb-bto-flats-in-singapore-scaled-colourised-1080x720.jpg");
+.cid-szZ1YV4axd {
+  padding-top: 6rem;
+  padding-bottom: 0rem;
+  background-color: #9fdbf8;
 }
-.cid-szN7dOIhHz .card-box {
-  z-index: 10;
-  position: relative;
+.cid-szZ1YV4axd .image-wrap img {
+  width: 100%;
 }
-@media (min-width: 1500px) {
-  .cid-szN7dOIhHz .container {
-    max-width: 1400px;
+@media (min-width: 992px) {
+  .cid-szZ1YV4axd .image-wrap img {
+    display: block;
+    margin: auto;
+    width: 100%;
   }
-}
-.cid-szN7dOIhHz .card {
-  margin: auto;
-}
-.cid-szN7dOIhHz .mbr-iconfont {
-  display: block;
-  font-size: 5rem;
-  color: #6592e6;
-  margin-bottom: 2rem;
-}
-.cid-szN7dOIhHz .card-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.cid-szN7dOIhHz .row {
-  justify-content: center;
-}
-.cid-szN7dOIhHz H3 {
-  text-align: center;
-}
-.cid-szN9PWXkbR {
-  padding-top: 0rem;
-  padding-bottom: 2rem;
-  background-image: url("../../../assets/images/background4.jpg");
-}
-.cid-szN9PWXkbR .card-box {
-  z-index: 10;
-  position: relative;
-}
-@media (min-width: 1500px) {
-  .cid-szN9PWXkbR .container {
-    max-width: 1400px;
-  }
-}
-.cid-szN9PWXkbR .card {
-  margin: auto;
-}
-.cid-szN9PWXkbR .mbr-iconfont {
-  display: block;
-  font-size: 5rem;
-  color: #6592e6;
-  margin-bottom: 2rem;
-}
-.cid-szN9PWXkbR .card-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.cid-szN9PWXkbR .row {
-  justify-content: center;
 }
 .cid-szNkbxNClP {
   padding-top: 60px;
