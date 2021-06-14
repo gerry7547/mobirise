@@ -46,7 +46,7 @@
       }
     ],
     "imageResize": true,
-    "uniqCompNum": 119,
+    "uniqCompNum": 120,
     "versionPublish": "5.3.9",
     "screenshot": "screenshot.png",
     "publishChangesOnly": true,
@@ -1328,6 +1328,148 @@
           "_global": false,
           "_once": false,
           "_params": {}
+        },
+        {
+          "alias": false,
+          "_styles": {
+            "padding-top": "(@paddingTop * 1rem)",
+            "padding-bottom": "(@paddingBottom * 1rem)",
+            "& when (@bg-type = 'image')": {
+              "background-image": "url(@bg-value)"
+            },
+            "& when (@bg-type = 'color')": {
+              "background-color": "@bg-value"
+            },
+            ".footer_col_logo": {
+              "width": "40%"
+            },
+            ".footer_col": {
+              "width": "20%"
+            },
+            ".list": {
+              "list-style": "none",
+              "padding": "0",
+              "margin": "0",
+              "color": "#ffffff"
+            },
+            ".logo_wrap": {
+              "max-width": "(@logoSize * 10%)",
+              "img": {
+                "width": "100%",
+                "max-height": "150px"
+              }
+            },
+            ".brand_name": {
+              "color": "#ffffff"
+            },
+            ".contacts": {
+              "margin-top": "46px",
+              "p": {
+                "line-height": "33px",
+                "margin-bottom": "0"
+              },
+              "b": {
+                "color": "#ffffff"
+              }
+            },
+            ".mbr-section-subtitle": {
+              "font-weight": "700",
+              "line-height": "1.1em",
+              "margin-bottom": "43px",
+              "color": "#ffffff"
+            },
+            ".item-wrap": {
+              "line-height": "44px"
+            },
+            "a.text-white": {
+              "color": "#a99fc5 !important",
+              "&:hover": {
+                "color": "#ffffff !important"
+              }
+            },
+            ".item-wrap a, .contacts a": {
+              "display": "inline-block",
+              "line-height": "1.87",
+              "position": "relative",
+              "transition": "0.6s cubic-bezier(0.165, 0.84, 0.44, 1)",
+              "&:before": {
+                "width": "0",
+                "left": "auto",
+                "right": "0",
+                "bottom": "5px",
+                "height": "1px",
+                "content": "\"\"",
+                "position": "absolute",
+                "transition": "width 0.2s linear",
+                "background": "#ffffff"
+              },
+              "&:hover::before": {
+                "left": "0",
+                "width": "100%",
+                "right": "auto"
+              }
+            },
+            ".image": {
+              "margin-top": "30px",
+              "max-width": "200px",
+              "img": {
+                "width": "100%",
+                "object-fit": "contain"
+              }
+            },
+            "@media (max-width: 991px)": {
+              ".row > [class*=\"col\"]": {
+                "padding-left": "1rem",
+                "padding-right": "1rem"
+              },
+              ".footer_col_logo": {
+                "width": "100%"
+              },
+              ".footer_col": {
+                "width": "33.3%"
+              },
+              ".image": {
+                "margin-bottom": "40px"
+              },
+              ".contacts": {
+                "margin-top": "30px",
+                "margin-bottom": "28px"
+              },
+              ".mbr-section-subtitle": {
+                "margin-bottom": "20px"
+              },
+              ".item-wrap": {
+                "line-height": "36px"
+              }
+            },
+            "@media (max-width: 767px)": {
+              ".row": {
+                "justify-content": "center",
+                "text-align": "center"
+              },
+              ".mbr-section-btn": {
+                "position": "absolute",
+                "right": "10px",
+                "left": "auto"
+              },
+              ".footer_col": {
+                "margin-top": "40px",
+                "width": "100%"
+              },
+              ".image": {
+                "margin": "auto",
+                "margin-top": "30px"
+              }
+            }
+          },
+          "_name": "footer2",
+          "_customHTML": "<section class=\"firmm4_footer2\" group=\"Footers\" data-bg-video=\"{{bg.type == 'video' && bg.value.url}}\" global once=\"footer\" mbr-class=\"{\n    'mbr-parallax-background': bg.parallax}\">\n\n    <mbr-parameters>\n        <header>Size</header>\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"10\" step=\"1\" value=\"5\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"10\" step=\"1\" value=\"5\">\n        <header>Show/Hide</header>\n        <input type=\"checkbox\" title=\"Title\" name=\"showTitle\">\n        <input type=\"checkbox\" title=\"Contacts\" name=\"showContacts\" checked>\n        <input type=\"checkbox\" title=\"Image\" name=\"showImage\">\n        <select name=\"showLogo\" title=\"Logo\">\n            <option value=\"1\">Logo</option>\n            <option value=\"2\" selected>Brand</option>\n        </select>\n        <input type=\"range\" inline title=\"Logo Size\" name=\"logoSize\" min=\"1\" max=\"10\" step=\"1\" value=\"1\" condition=\"showLogo == 1\">\n        <header>Background</header>\n        <fieldset type=\"background\" name=\"bg\" parallax>\n            <input type=\"image\" title=\"Image\" value=\"@ADDONS_PATH@/firmm4/components/_images/background/background.jpg\">\n            <input type=\"color\" title=\"Color\" value=\"#051441\" selected>\n        </fieldset>\n        <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\" checked>\n        <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#ffffff\" condition=\"overlay && bg.type !== 'color'\">\n        <input type=\"range\" inline title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.6\" condition=\"overlay && bg.type !== 'color'\">\n    </mbr-parameters>\n    \n    <div class=\"mbr-overlay\" mbr-if=\"overlay && bg.type !== 'color'\" opacity=\"{{overlayOpacity}}\" bg-color=\"{{overlayColor}}\"></div>\n    \n    <div mbr-class=\"{'container': !fullWidth, 'container-fluid': fullWidth}\">\n        <div class=\"row\">\n            <div class=\"footer_col_logo\">\n                <div class=\"logo_wrap\" mbr-if=\"showLogo == 1\">\n                    <a href=\"#\">\n                        <img src=\"@ADDONS_PATH@/firmm4/components/_images/logo.png\" alt=\"Mobirise\">\n                    </a>\n                </div>\n                <div class=\"brand_wrap\" mbr-if=\"showLogo == 2\">\n                    <h3 mbr-theme-style=\"display-5\" class=\"brand_name mb-0\" data-app-selector=\".brand_name\"><b>UChuuz Services</b></h3>\n                </div>\n                <div class=\"contacts\" mbr-if=\"showContacts\">\n                    <p class=\"contacts_mail mbr-fonts-style\" mbr-theme-style=\"display-4\" data-app-selector=\".contacts_mail\"><font color=\"#ffffff\"><b>123 Street Name</b></font></p>\n                    <p class=\"contacts_phone mbr-fonts-style\" mbr-theme-style=\"display-4\" data-app-selector=\".contacts_phone\"><font color=\"#ffffff\"><b>Singapore 123456</b></font></p>\n                </div>\n                <div class=\"image\" mbr-if=\"showImage\">\n                    <img src=\"@PROJECT_PATH@/assets/images/uchuuz%20services%20logo-400x431.png\" alt>\n                </div>\n            </div>   \n            <div class=\"footer_col\">\n                <h5 mbr-text class=\"mbr-section-subtitle mbr-fonts-style\" data-app-selector=\".mbr-section-subtitle\" mbr-theme-style=\"display-7\" mbr-if=\"showTitle\"><b>Help</b>\n                </h5>\n                <ul class=\"list mbr-fonts-style\" mbr-theme-style=\"display-4\" data-app-selector=\".list\" data-multiline mbr-article>\n                    <li class=\"mbr-text item-wrap\"><br></li>\n                    <li class=\"mbr-text item-wrap\"><br></li>\n                </ul>\n            </div>\n            <div class=\"footer_col\">\n                <h5 mbr-text class=\"mbr-section-subtitle mbr-fonts-style\" data-app-selector=\".mbr-section-subtitle\" mbr-theme-style=\"display-7\" mbr-if=\"showTitle\"><b>Extensions</b>\n                </h5>\n                <ul class=\"list mbr-fonts-style\" mbr-theme-style=\"display-4\" data-app-selector=\".list\" data-multiline mbr-article>\n                    <li class=\"mbr-text item-wrap\">Contact Us</li><li class=\"mbr-text item-wrap\">FAQ</li>\n                </ul>\n            </div>\n            <div class=\"footer_col\">\n                <h5 mbr-text class=\"mbr-section-subtitle mbr-fonts-style\" data-app-selector=\".mbr-section-subtitle\" mbr-theme-style=\"display-7\" mbr-if=\"showTitle\">\n                    <b>App</b></h5>\n                <ul class=\"list mbr-fonts-style\" mbr-theme-style=\"display-4\" data-app-selector=\".list\" data-multiline mbr-article>\n                    <li class=\"mbr-text item-wrap\">About Us</li>\n                    <li class=\"mbr-text item-wrap\">News</li>\n                    <li class=\"mbr-text item-wrap\">Site info</li>\n                </ul>\n            </div>\n        </div>\n    </div>\n</section>",
+          "_cid": "sAiENL4Zwm",
+          "_protectedParams": [],
+          "_global": true,
+          "_once": "footer",
+          "_params": {},
+          "_anchor": "footer2-3b"
         }
       ]
     },
@@ -2140,6 +2282,148 @@
           "_global": false,
           "_once": false,
           "_params": {}
+        },
+        {
+          "alias": false,
+          "_styles": {
+            "padding-top": "(@paddingTop * 1rem)",
+            "padding-bottom": "(@paddingBottom * 1rem)",
+            "& when (@bg-type = 'image')": {
+              "background-image": "url(@bg-value)"
+            },
+            "& when (@bg-type = 'color')": {
+              "background-color": "@bg-value"
+            },
+            ".footer_col_logo": {
+              "width": "40%"
+            },
+            ".footer_col": {
+              "width": "20%"
+            },
+            ".list": {
+              "list-style": "none",
+              "padding": "0",
+              "margin": "0",
+              "color": "#ffffff"
+            },
+            ".logo_wrap": {
+              "max-width": "(@logoSize * 10%)",
+              "img": {
+                "width": "100%",
+                "max-height": "150px"
+              }
+            },
+            ".brand_name": {
+              "color": "#ffffff"
+            },
+            ".contacts": {
+              "margin-top": "46px",
+              "p": {
+                "line-height": "33px",
+                "margin-bottom": "0"
+              },
+              "b": {
+                "color": "#ffffff"
+              }
+            },
+            ".mbr-section-subtitle": {
+              "font-weight": "700",
+              "line-height": "1.1em",
+              "margin-bottom": "43px",
+              "color": "#ffffff"
+            },
+            ".item-wrap": {
+              "line-height": "44px"
+            },
+            "a.text-white": {
+              "color": "#a99fc5 !important",
+              "&:hover": {
+                "color": "#ffffff !important"
+              }
+            },
+            ".item-wrap a, .contacts a": {
+              "display": "inline-block",
+              "line-height": "1.87",
+              "position": "relative",
+              "transition": "0.6s cubic-bezier(0.165, 0.84, 0.44, 1)",
+              "&:before": {
+                "width": "0",
+                "left": "auto",
+                "right": "0",
+                "bottom": "5px",
+                "height": "1px",
+                "content": "\"\"",
+                "position": "absolute",
+                "transition": "width 0.2s linear",
+                "background": "#ffffff"
+              },
+              "&:hover::before": {
+                "left": "0",
+                "width": "100%",
+                "right": "auto"
+              }
+            },
+            ".image": {
+              "margin-top": "30px",
+              "max-width": "200px",
+              "img": {
+                "width": "100%",
+                "object-fit": "contain"
+              }
+            },
+            "@media (max-width: 991px)": {
+              ".row > [class*=\"col\"]": {
+                "padding-left": "1rem",
+                "padding-right": "1rem"
+              },
+              ".footer_col_logo": {
+                "width": "100%"
+              },
+              ".footer_col": {
+                "width": "33.3%"
+              },
+              ".image": {
+                "margin-bottom": "40px"
+              },
+              ".contacts": {
+                "margin-top": "30px",
+                "margin-bottom": "28px"
+              },
+              ".mbr-section-subtitle": {
+                "margin-bottom": "20px"
+              },
+              ".item-wrap": {
+                "line-height": "36px"
+              }
+            },
+            "@media (max-width: 767px)": {
+              ".row": {
+                "justify-content": "center",
+                "text-align": "center"
+              },
+              ".mbr-section-btn": {
+                "position": "absolute",
+                "right": "10px",
+                "left": "auto"
+              },
+              ".footer_col": {
+                "margin-top": "40px",
+                "width": "100%"
+              },
+              ".image": {
+                "margin": "auto",
+                "margin-top": "30px"
+              }
+            }
+          },
+          "_name": "footer2",
+          "_customHTML": "<section class=\"firmm4_footer2\" group=\"Footers\" data-bg-video=\"{{bg.type == 'video' && bg.value.url}}\" global once=\"footer\" mbr-class=\"{\n    'mbr-parallax-background': bg.parallax}\">\n\n    <mbr-parameters>\n        <header>Size</header>\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"10\" step=\"1\" value=\"5\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"10\" step=\"1\" value=\"5\">\n        <header>Show/Hide</header>\n        <input type=\"checkbox\" title=\"Title\" name=\"showTitle\">\n        <input type=\"checkbox\" title=\"Contacts\" name=\"showContacts\" checked>\n        <input type=\"checkbox\" title=\"Image\" name=\"showImage\">\n        <select name=\"showLogo\" title=\"Logo\">\n            <option value=\"1\">Logo</option>\n            <option value=\"2\" selected>Brand</option>\n        </select>\n        <input type=\"range\" inline title=\"Logo Size\" name=\"logoSize\" min=\"1\" max=\"10\" step=\"1\" value=\"1\" condition=\"showLogo == 1\">\n        <header>Background</header>\n        <fieldset type=\"background\" name=\"bg\" parallax>\n            <input type=\"image\" title=\"Image\" value=\"@ADDONS_PATH@/firmm4/components/_images/background/background.jpg\">\n            <input type=\"color\" title=\"Color\" value=\"#051441\" selected>\n        </fieldset>\n        <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\" checked>\n        <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#ffffff\" condition=\"overlay && bg.type !== 'color'\">\n        <input type=\"range\" inline title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.6\" condition=\"overlay && bg.type !== 'color'\">\n    </mbr-parameters>\n    \n    <div class=\"mbr-overlay\" mbr-if=\"overlay && bg.type !== 'color'\" opacity=\"{{overlayOpacity}}\" bg-color=\"{{overlayColor}}\"></div>\n    \n    <div mbr-class=\"{'container': !fullWidth, 'container-fluid': fullWidth}\">\n        <div class=\"row\">\n            <div class=\"footer_col_logo\">\n                <div class=\"logo_wrap\" mbr-if=\"showLogo == 1\">\n                    <a href=\"#\">\n                        <img src=\"@ADDONS_PATH@/firmm4/components/_images/logo.png\" alt=\"Mobirise\">\n                    </a>\n                </div>\n                <div class=\"brand_wrap\" mbr-if=\"showLogo == 2\">\n                    <h3 mbr-theme-style=\"display-5\" class=\"brand_name mb-0\" data-app-selector=\".brand_name\"><b>UChuuz Services</b></h3>\n                </div>\n                <div class=\"contacts\" mbr-if=\"showContacts\">\n                    <p class=\"contacts_mail mbr-fonts-style\" mbr-theme-style=\"display-4\" data-app-selector=\".contacts_mail\"><font color=\"#ffffff\"><b>123 Street Name</b></font></p>\n                    <p class=\"contacts_phone mbr-fonts-style\" mbr-theme-style=\"display-4\" data-app-selector=\".contacts_phone\"><font color=\"#ffffff\"><b>Singapore 123456</b></font></p>\n                </div>\n                <div class=\"image\" mbr-if=\"showImage\">\n                    <img src=\"@PROJECT_PATH@/assets/images/uchuuz%20services%20logo-400x431.png\" alt>\n                </div>\n            </div>   \n            <div class=\"footer_col\">\n                <h5 mbr-text class=\"mbr-section-subtitle mbr-fonts-style\" data-app-selector=\".mbr-section-subtitle\" mbr-theme-style=\"display-7\" mbr-if=\"showTitle\"><b>Help</b>\n                </h5>\n                <ul class=\"list mbr-fonts-style\" mbr-theme-style=\"display-4\" data-app-selector=\".list\" data-multiline mbr-article>\n                    <li class=\"mbr-text item-wrap\"><br></li>\n                    <li class=\"mbr-text item-wrap\"><br></li>\n                </ul>\n            </div>\n            <div class=\"footer_col\">\n                <h5 mbr-text class=\"mbr-section-subtitle mbr-fonts-style\" data-app-selector=\".mbr-section-subtitle\" mbr-theme-style=\"display-7\" mbr-if=\"showTitle\"><b>Extensions</b>\n                </h5>\n                <ul class=\"list mbr-fonts-style\" mbr-theme-style=\"display-4\" data-app-selector=\".list\" data-multiline mbr-article>\n                    <li class=\"mbr-text item-wrap\">Contact Us</li><li class=\"mbr-text item-wrap\">FAQ</li>\n                </ul>\n            </div>\n            <div class=\"footer_col\">\n                <h5 mbr-text class=\"mbr-section-subtitle mbr-fonts-style\" data-app-selector=\".mbr-section-subtitle\" mbr-theme-style=\"display-7\" mbr-if=\"showTitle\">\n                    <b>App</b></h5>\n                <ul class=\"list mbr-fonts-style\" mbr-theme-style=\"display-4\" data-app-selector=\".list\" data-multiline mbr-article>\n                    <li class=\"mbr-text item-wrap\">About Us</li>\n                    <li class=\"mbr-text item-wrap\">News</li>\n                    <li class=\"mbr-text item-wrap\">Site info</li>\n                </ul>\n            </div>\n        </div>\n    </div>\n</section>",
+          "_cid": "sAiENL4Zwm",
+          "_protectedParams": [],
+          "_global": true,
+          "_once": "footer",
+          "_params": {},
+          "_anchor": "footer2-3b"
         }
       ]
     },
@@ -2771,6 +3055,148 @@
           "_global": false,
           "_once": false,
           "_params": {}
+        },
+        {
+          "alias": false,
+          "_styles": {
+            "padding-top": "(@paddingTop * 1rem)",
+            "padding-bottom": "(@paddingBottom * 1rem)",
+            "& when (@bg-type = 'image')": {
+              "background-image": "url(@bg-value)"
+            },
+            "& when (@bg-type = 'color')": {
+              "background-color": "@bg-value"
+            },
+            ".footer_col_logo": {
+              "width": "40%"
+            },
+            ".footer_col": {
+              "width": "20%"
+            },
+            ".list": {
+              "list-style": "none",
+              "padding": "0",
+              "margin": "0",
+              "color": "#ffffff"
+            },
+            ".logo_wrap": {
+              "max-width": "(@logoSize * 10%)",
+              "img": {
+                "width": "100%",
+                "max-height": "150px"
+              }
+            },
+            ".brand_name": {
+              "color": "#ffffff"
+            },
+            ".contacts": {
+              "margin-top": "46px",
+              "p": {
+                "line-height": "33px",
+                "margin-bottom": "0"
+              },
+              "b": {
+                "color": "#ffffff"
+              }
+            },
+            ".mbr-section-subtitle": {
+              "font-weight": "700",
+              "line-height": "1.1em",
+              "margin-bottom": "43px",
+              "color": "#ffffff"
+            },
+            ".item-wrap": {
+              "line-height": "44px"
+            },
+            "a.text-white": {
+              "color": "#a99fc5 !important",
+              "&:hover": {
+                "color": "#ffffff !important"
+              }
+            },
+            ".item-wrap a, .contacts a": {
+              "display": "inline-block",
+              "line-height": "1.87",
+              "position": "relative",
+              "transition": "0.6s cubic-bezier(0.165, 0.84, 0.44, 1)",
+              "&:before": {
+                "width": "0",
+                "left": "auto",
+                "right": "0",
+                "bottom": "5px",
+                "height": "1px",
+                "content": "\"\"",
+                "position": "absolute",
+                "transition": "width 0.2s linear",
+                "background": "#ffffff"
+              },
+              "&:hover::before": {
+                "left": "0",
+                "width": "100%",
+                "right": "auto"
+              }
+            },
+            ".image": {
+              "margin-top": "30px",
+              "max-width": "200px",
+              "img": {
+                "width": "100%",
+                "object-fit": "contain"
+              }
+            },
+            "@media (max-width: 991px)": {
+              ".row > [class*=\"col\"]": {
+                "padding-left": "1rem",
+                "padding-right": "1rem"
+              },
+              ".footer_col_logo": {
+                "width": "100%"
+              },
+              ".footer_col": {
+                "width": "33.3%"
+              },
+              ".image": {
+                "margin-bottom": "40px"
+              },
+              ".contacts": {
+                "margin-top": "30px",
+                "margin-bottom": "28px"
+              },
+              ".mbr-section-subtitle": {
+                "margin-bottom": "20px"
+              },
+              ".item-wrap": {
+                "line-height": "36px"
+              }
+            },
+            "@media (max-width: 767px)": {
+              ".row": {
+                "justify-content": "center",
+                "text-align": "center"
+              },
+              ".mbr-section-btn": {
+                "position": "absolute",
+                "right": "10px",
+                "left": "auto"
+              },
+              ".footer_col": {
+                "margin-top": "40px",
+                "width": "100%"
+              },
+              ".image": {
+                "margin": "auto",
+                "margin-top": "30px"
+              }
+            }
+          },
+          "_name": "footer2",
+          "_customHTML": "<section class=\"firmm4_footer2\" group=\"Footers\" data-bg-video=\"{{bg.type == 'video' && bg.value.url}}\" global once=\"footer\" mbr-class=\"{\n    'mbr-parallax-background': bg.parallax}\">\n\n    <mbr-parameters>\n        <header>Size</header>\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"10\" step=\"1\" value=\"5\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"10\" step=\"1\" value=\"5\">\n        <header>Show/Hide</header>\n        <input type=\"checkbox\" title=\"Title\" name=\"showTitle\">\n        <input type=\"checkbox\" title=\"Contacts\" name=\"showContacts\" checked>\n        <input type=\"checkbox\" title=\"Image\" name=\"showImage\">\n        <select name=\"showLogo\" title=\"Logo\">\n            <option value=\"1\">Logo</option>\n            <option value=\"2\" selected>Brand</option>\n        </select>\n        <input type=\"range\" inline title=\"Logo Size\" name=\"logoSize\" min=\"1\" max=\"10\" step=\"1\" value=\"1\" condition=\"showLogo == 1\">\n        <header>Background</header>\n        <fieldset type=\"background\" name=\"bg\" parallax>\n            <input type=\"image\" title=\"Image\" value=\"@ADDONS_PATH@/firmm4/components/_images/background/background.jpg\">\n            <input type=\"color\" title=\"Color\" value=\"#051441\" selected>\n        </fieldset>\n        <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\" checked>\n        <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#ffffff\" condition=\"overlay && bg.type !== 'color'\">\n        <input type=\"range\" inline title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.6\" condition=\"overlay && bg.type !== 'color'\">\n    </mbr-parameters>\n    \n    <div class=\"mbr-overlay\" mbr-if=\"overlay && bg.type !== 'color'\" opacity=\"{{overlayOpacity}}\" bg-color=\"{{overlayColor}}\"></div>\n    \n    <div mbr-class=\"{'container': !fullWidth, 'container-fluid': fullWidth}\">\n        <div class=\"row\">\n            <div class=\"footer_col_logo\">\n                <div class=\"logo_wrap\" mbr-if=\"showLogo == 1\">\n                    <a href=\"#\">\n                        <img src=\"@ADDONS_PATH@/firmm4/components/_images/logo.png\" alt=\"Mobirise\">\n                    </a>\n                </div>\n                <div class=\"brand_wrap\" mbr-if=\"showLogo == 2\">\n                    <h3 mbr-theme-style=\"display-5\" class=\"brand_name mb-0\" data-app-selector=\".brand_name\"><b>UChuuz Services</b></h3>\n                </div>\n                <div class=\"contacts\" mbr-if=\"showContacts\">\n                    <p class=\"contacts_mail mbr-fonts-style\" mbr-theme-style=\"display-4\" data-app-selector=\".contacts_mail\"><font color=\"#ffffff\"><b>123 Street Name</b></font></p>\n                    <p class=\"contacts_phone mbr-fonts-style\" mbr-theme-style=\"display-4\" data-app-selector=\".contacts_phone\"><font color=\"#ffffff\"><b>Singapore 123456</b></font></p>\n                </div>\n                <div class=\"image\" mbr-if=\"showImage\">\n                    <img src=\"@PROJECT_PATH@/assets/images/uchuuz%20services%20logo-400x431.png\" alt>\n                </div>\n            </div>   \n            <div class=\"footer_col\">\n                <h5 mbr-text class=\"mbr-section-subtitle mbr-fonts-style\" data-app-selector=\".mbr-section-subtitle\" mbr-theme-style=\"display-7\" mbr-if=\"showTitle\"><b>Help</b>\n                </h5>\n                <ul class=\"list mbr-fonts-style\" mbr-theme-style=\"display-4\" data-app-selector=\".list\" data-multiline mbr-article>\n                    <li class=\"mbr-text item-wrap\"><br></li>\n                    <li class=\"mbr-text item-wrap\"><br></li>\n                </ul>\n            </div>\n            <div class=\"footer_col\">\n                <h5 mbr-text class=\"mbr-section-subtitle mbr-fonts-style\" data-app-selector=\".mbr-section-subtitle\" mbr-theme-style=\"display-7\" mbr-if=\"showTitle\"><b>Extensions</b>\n                </h5>\n                <ul class=\"list mbr-fonts-style\" mbr-theme-style=\"display-4\" data-app-selector=\".list\" data-multiline mbr-article>\n                    <li class=\"mbr-text item-wrap\">Contact Us</li><li class=\"mbr-text item-wrap\">FAQ</li>\n                </ul>\n            </div>\n            <div class=\"footer_col\">\n                <h5 mbr-text class=\"mbr-section-subtitle mbr-fonts-style\" data-app-selector=\".mbr-section-subtitle\" mbr-theme-style=\"display-7\" mbr-if=\"showTitle\">\n                    <b>App</b></h5>\n                <ul class=\"list mbr-fonts-style\" mbr-theme-style=\"display-4\" data-app-selector=\".list\" data-multiline mbr-article>\n                    <li class=\"mbr-text item-wrap\">About Us</li>\n                    <li class=\"mbr-text item-wrap\">News</li>\n                    <li class=\"mbr-text item-wrap\">Site info</li>\n                </ul>\n            </div>\n        </div>\n    </div>\n</section>",
+          "_cid": "sAiENL4Zwm",
+          "_protectedParams": [],
+          "_global": true,
+          "_once": "footer",
+          "_params": {},
+          "_anchor": "footer2-3b"
         }
       ]
     },
@@ -3403,6 +3829,148 @@
           "_global": false,
           "_once": false,
           "_params": {}
+        },
+        {
+          "alias": false,
+          "_styles": {
+            "padding-top": "(@paddingTop * 1rem)",
+            "padding-bottom": "(@paddingBottom * 1rem)",
+            "& when (@bg-type = 'image')": {
+              "background-image": "url(@bg-value)"
+            },
+            "& when (@bg-type = 'color')": {
+              "background-color": "@bg-value"
+            },
+            ".footer_col_logo": {
+              "width": "40%"
+            },
+            ".footer_col": {
+              "width": "20%"
+            },
+            ".list": {
+              "list-style": "none",
+              "padding": "0",
+              "margin": "0",
+              "color": "#ffffff"
+            },
+            ".logo_wrap": {
+              "max-width": "(@logoSize * 10%)",
+              "img": {
+                "width": "100%",
+                "max-height": "150px"
+              }
+            },
+            ".brand_name": {
+              "color": "#ffffff"
+            },
+            ".contacts": {
+              "margin-top": "46px",
+              "p": {
+                "line-height": "33px",
+                "margin-bottom": "0"
+              },
+              "b": {
+                "color": "#ffffff"
+              }
+            },
+            ".mbr-section-subtitle": {
+              "font-weight": "700",
+              "line-height": "1.1em",
+              "margin-bottom": "43px",
+              "color": "#ffffff"
+            },
+            ".item-wrap": {
+              "line-height": "44px"
+            },
+            "a.text-white": {
+              "color": "#a99fc5 !important",
+              "&:hover": {
+                "color": "#ffffff !important"
+              }
+            },
+            ".item-wrap a, .contacts a": {
+              "display": "inline-block",
+              "line-height": "1.87",
+              "position": "relative",
+              "transition": "0.6s cubic-bezier(0.165, 0.84, 0.44, 1)",
+              "&:before": {
+                "width": "0",
+                "left": "auto",
+                "right": "0",
+                "bottom": "5px",
+                "height": "1px",
+                "content": "\"\"",
+                "position": "absolute",
+                "transition": "width 0.2s linear",
+                "background": "#ffffff"
+              },
+              "&:hover::before": {
+                "left": "0",
+                "width": "100%",
+                "right": "auto"
+              }
+            },
+            ".image": {
+              "margin-top": "30px",
+              "max-width": "200px",
+              "img": {
+                "width": "100%",
+                "object-fit": "contain"
+              }
+            },
+            "@media (max-width: 991px)": {
+              ".row > [class*=\"col\"]": {
+                "padding-left": "1rem",
+                "padding-right": "1rem"
+              },
+              ".footer_col_logo": {
+                "width": "100%"
+              },
+              ".footer_col": {
+                "width": "33.3%"
+              },
+              ".image": {
+                "margin-bottom": "40px"
+              },
+              ".contacts": {
+                "margin-top": "30px",
+                "margin-bottom": "28px"
+              },
+              ".mbr-section-subtitle": {
+                "margin-bottom": "20px"
+              },
+              ".item-wrap": {
+                "line-height": "36px"
+              }
+            },
+            "@media (max-width: 767px)": {
+              ".row": {
+                "justify-content": "center",
+                "text-align": "center"
+              },
+              ".mbr-section-btn": {
+                "position": "absolute",
+                "right": "10px",
+                "left": "auto"
+              },
+              ".footer_col": {
+                "margin-top": "40px",
+                "width": "100%"
+              },
+              ".image": {
+                "margin": "auto",
+                "margin-top": "30px"
+              }
+            }
+          },
+          "_name": "footer2",
+          "_customHTML": "<section class=\"firmm4_footer2\" group=\"Footers\" data-bg-video=\"{{bg.type == 'video' && bg.value.url}}\" global once=\"footer\" mbr-class=\"{\n    'mbr-parallax-background': bg.parallax}\">\n\n    <mbr-parameters>\n        <header>Size</header>\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"10\" step=\"1\" value=\"5\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"10\" step=\"1\" value=\"5\">\n        <header>Show/Hide</header>\n        <input type=\"checkbox\" title=\"Title\" name=\"showTitle\">\n        <input type=\"checkbox\" title=\"Contacts\" name=\"showContacts\" checked>\n        <input type=\"checkbox\" title=\"Image\" name=\"showImage\">\n        <select name=\"showLogo\" title=\"Logo\">\n            <option value=\"1\">Logo</option>\n            <option value=\"2\" selected>Brand</option>\n        </select>\n        <input type=\"range\" inline title=\"Logo Size\" name=\"logoSize\" min=\"1\" max=\"10\" step=\"1\" value=\"1\" condition=\"showLogo == 1\">\n        <header>Background</header>\n        <fieldset type=\"background\" name=\"bg\" parallax>\n            <input type=\"image\" title=\"Image\" value=\"@ADDONS_PATH@/firmm4/components/_images/background/background.jpg\">\n            <input type=\"color\" title=\"Color\" value=\"#051441\" selected>\n        </fieldset>\n        <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\" checked>\n        <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#ffffff\" condition=\"overlay && bg.type !== 'color'\">\n        <input type=\"range\" inline title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.6\" condition=\"overlay && bg.type !== 'color'\">\n    </mbr-parameters>\n    \n    <div class=\"mbr-overlay\" mbr-if=\"overlay && bg.type !== 'color'\" opacity=\"{{overlayOpacity}}\" bg-color=\"{{overlayColor}}\"></div>\n    \n    <div mbr-class=\"{'container': !fullWidth, 'container-fluid': fullWidth}\">\n        <div class=\"row\">\n            <div class=\"footer_col_logo\">\n                <div class=\"logo_wrap\" mbr-if=\"showLogo == 1\">\n                    <a href=\"#\">\n                        <img src=\"@ADDONS_PATH@/firmm4/components/_images/logo.png\" alt=\"Mobirise\">\n                    </a>\n                </div>\n                <div class=\"brand_wrap\" mbr-if=\"showLogo == 2\">\n                    <h3 mbr-theme-style=\"display-5\" class=\"brand_name mb-0\" data-app-selector=\".brand_name\"><b>UChuuz Services</b></h3>\n                </div>\n                <div class=\"contacts\" mbr-if=\"showContacts\">\n                    <p class=\"contacts_mail mbr-fonts-style\" mbr-theme-style=\"display-4\" data-app-selector=\".contacts_mail\"><font color=\"#ffffff\"><b>123 Street Name</b></font></p>\n                    <p class=\"contacts_phone mbr-fonts-style\" mbr-theme-style=\"display-4\" data-app-selector=\".contacts_phone\"><font color=\"#ffffff\"><b>Singapore 123456</b></font></p>\n                </div>\n                <div class=\"image\" mbr-if=\"showImage\">\n                    <img src=\"@PROJECT_PATH@/assets/images/uchuuz%20services%20logo-400x431.png\" alt>\n                </div>\n            </div>   \n            <div class=\"footer_col\">\n                <h5 mbr-text class=\"mbr-section-subtitle mbr-fonts-style\" data-app-selector=\".mbr-section-subtitle\" mbr-theme-style=\"display-7\" mbr-if=\"showTitle\"><b>Help</b>\n                </h5>\n                <ul class=\"list mbr-fonts-style\" mbr-theme-style=\"display-4\" data-app-selector=\".list\" data-multiline mbr-article>\n                    <li class=\"mbr-text item-wrap\"><br></li>\n                    <li class=\"mbr-text item-wrap\"><br></li>\n                </ul>\n            </div>\n            <div class=\"footer_col\">\n                <h5 mbr-text class=\"mbr-section-subtitle mbr-fonts-style\" data-app-selector=\".mbr-section-subtitle\" mbr-theme-style=\"display-7\" mbr-if=\"showTitle\"><b>Extensions</b>\n                </h5>\n                <ul class=\"list mbr-fonts-style\" mbr-theme-style=\"display-4\" data-app-selector=\".list\" data-multiline mbr-article>\n                    <li class=\"mbr-text item-wrap\">Contact Us</li><li class=\"mbr-text item-wrap\">FAQ</li>\n                </ul>\n            </div>\n            <div class=\"footer_col\">\n                <h5 mbr-text class=\"mbr-section-subtitle mbr-fonts-style\" data-app-selector=\".mbr-section-subtitle\" mbr-theme-style=\"display-7\" mbr-if=\"showTitle\">\n                    <b>App</b></h5>\n                <ul class=\"list mbr-fonts-style\" mbr-theme-style=\"display-4\" data-app-selector=\".list\" data-multiline mbr-article>\n                    <li class=\"mbr-text item-wrap\">About Us</li>\n                    <li class=\"mbr-text item-wrap\">News</li>\n                    <li class=\"mbr-text item-wrap\">Site info</li>\n                </ul>\n            </div>\n        </div>\n    </div>\n</section>",
+          "_cid": "sAiENL4Zwm",
+          "_protectedParams": [],
+          "_global": true,
+          "_once": "footer",
+          "_params": {},
+          "_anchor": "footer2-3b"
         }
       ]
     },
@@ -3910,6 +4478,148 @@
           "_global": true,
           "_once": "menu",
           "_params": {}
+        },
+        {
+          "alias": false,
+          "_styles": {
+            "padding-top": "(@paddingTop * 1rem)",
+            "padding-bottom": "(@paddingBottom * 1rem)",
+            "& when (@bg-type = 'image')": {
+              "background-image": "url(@bg-value)"
+            },
+            "& when (@bg-type = 'color')": {
+              "background-color": "@bg-value"
+            },
+            ".footer_col_logo": {
+              "width": "40%"
+            },
+            ".footer_col": {
+              "width": "20%"
+            },
+            ".list": {
+              "list-style": "none",
+              "padding": "0",
+              "margin": "0",
+              "color": "#ffffff"
+            },
+            ".logo_wrap": {
+              "max-width": "(@logoSize * 10%)",
+              "img": {
+                "width": "100%",
+                "max-height": "150px"
+              }
+            },
+            ".brand_name": {
+              "color": "#ffffff"
+            },
+            ".contacts": {
+              "margin-top": "46px",
+              "p": {
+                "line-height": "33px",
+                "margin-bottom": "0"
+              },
+              "b": {
+                "color": "#ffffff"
+              }
+            },
+            ".mbr-section-subtitle": {
+              "font-weight": "700",
+              "line-height": "1.1em",
+              "margin-bottom": "43px",
+              "color": "#ffffff"
+            },
+            ".item-wrap": {
+              "line-height": "44px"
+            },
+            "a.text-white": {
+              "color": "#a99fc5 !important",
+              "&:hover": {
+                "color": "#ffffff !important"
+              }
+            },
+            ".item-wrap a, .contacts a": {
+              "display": "inline-block",
+              "line-height": "1.87",
+              "position": "relative",
+              "transition": "0.6s cubic-bezier(0.165, 0.84, 0.44, 1)",
+              "&:before": {
+                "width": "0",
+                "left": "auto",
+                "right": "0",
+                "bottom": "5px",
+                "height": "1px",
+                "content": "\"\"",
+                "position": "absolute",
+                "transition": "width 0.2s linear",
+                "background": "#ffffff"
+              },
+              "&:hover::before": {
+                "left": "0",
+                "width": "100%",
+                "right": "auto"
+              }
+            },
+            ".image": {
+              "margin-top": "30px",
+              "max-width": "200px",
+              "img": {
+                "width": "100%",
+                "object-fit": "contain"
+              }
+            },
+            "@media (max-width: 991px)": {
+              ".row > [class*=\"col\"]": {
+                "padding-left": "1rem",
+                "padding-right": "1rem"
+              },
+              ".footer_col_logo": {
+                "width": "100%"
+              },
+              ".footer_col": {
+                "width": "33.3%"
+              },
+              ".image": {
+                "margin-bottom": "40px"
+              },
+              ".contacts": {
+                "margin-top": "30px",
+                "margin-bottom": "28px"
+              },
+              ".mbr-section-subtitle": {
+                "margin-bottom": "20px"
+              },
+              ".item-wrap": {
+                "line-height": "36px"
+              }
+            },
+            "@media (max-width: 767px)": {
+              ".row": {
+                "justify-content": "center",
+                "text-align": "center"
+              },
+              ".mbr-section-btn": {
+                "position": "absolute",
+                "right": "10px",
+                "left": "auto"
+              },
+              ".footer_col": {
+                "margin-top": "40px",
+                "width": "100%"
+              },
+              ".image": {
+                "margin": "auto",
+                "margin-top": "30px"
+              }
+            }
+          },
+          "_name": "footer2",
+          "_customHTML": "<section class=\"firmm4_footer2\" group=\"Footers\" data-bg-video=\"{{bg.type == 'video' && bg.value.url}}\" global once=\"footer\" mbr-class=\"{\n    'mbr-parallax-background': bg.parallax}\">\n\n    <mbr-parameters>\n        <header>Size</header>\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"10\" step=\"1\" value=\"5\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"10\" step=\"1\" value=\"5\">\n        <header>Show/Hide</header>\n        <input type=\"checkbox\" title=\"Title\" name=\"showTitle\">\n        <input type=\"checkbox\" title=\"Contacts\" name=\"showContacts\" checked>\n        <input type=\"checkbox\" title=\"Image\" name=\"showImage\">\n        <select name=\"showLogo\" title=\"Logo\">\n            <option value=\"1\">Logo</option>\n            <option value=\"2\" selected>Brand</option>\n        </select>\n        <input type=\"range\" inline title=\"Logo Size\" name=\"logoSize\" min=\"1\" max=\"10\" step=\"1\" value=\"1\" condition=\"showLogo == 1\">\n        <header>Background</header>\n        <fieldset type=\"background\" name=\"bg\" parallax>\n            <input type=\"image\" title=\"Image\" value=\"@ADDONS_PATH@/firmm4/components/_images/background/background.jpg\">\n            <input type=\"color\" title=\"Color\" value=\"#051441\" selected>\n        </fieldset>\n        <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\" checked>\n        <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#ffffff\" condition=\"overlay && bg.type !== 'color'\">\n        <input type=\"range\" inline title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.6\" condition=\"overlay && bg.type !== 'color'\">\n    </mbr-parameters>\n    \n    <div class=\"mbr-overlay\" mbr-if=\"overlay && bg.type !== 'color'\" opacity=\"{{overlayOpacity}}\" bg-color=\"{{overlayColor}}\"></div>\n    \n    <div mbr-class=\"{'container': !fullWidth, 'container-fluid': fullWidth}\">\n        <div class=\"row\">\n            <div class=\"footer_col_logo\">\n                <div class=\"logo_wrap\" mbr-if=\"showLogo == 1\">\n                    <a href=\"#\">\n                        <img src=\"@ADDONS_PATH@/firmm4/components/_images/logo.png\" alt=\"Mobirise\">\n                    </a>\n                </div>\n                <div class=\"brand_wrap\" mbr-if=\"showLogo == 2\">\n                    <h3 mbr-theme-style=\"display-5\" class=\"brand_name mb-0\" data-app-selector=\".brand_name\"><b>UChuuz Services</b></h3>\n                </div>\n                <div class=\"contacts\" mbr-if=\"showContacts\">\n                    <p class=\"contacts_mail mbr-fonts-style\" mbr-theme-style=\"display-4\" data-app-selector=\".contacts_mail\"><font color=\"#ffffff\"><b>123 Street Name</b></font></p>\n                    <p class=\"contacts_phone mbr-fonts-style\" mbr-theme-style=\"display-4\" data-app-selector=\".contacts_phone\"><font color=\"#ffffff\"><b>Singapore 123456</b></font></p>\n                </div>\n                <div class=\"image\" mbr-if=\"showImage\">\n                    <img src=\"@PROJECT_PATH@/assets/images/uchuuz%20services%20logo-400x431.png\" alt>\n                </div>\n            </div>   \n            <div class=\"footer_col\">\n                <h5 mbr-text class=\"mbr-section-subtitle mbr-fonts-style\" data-app-selector=\".mbr-section-subtitle\" mbr-theme-style=\"display-7\" mbr-if=\"showTitle\"><b>Help</b>\n                </h5>\n                <ul class=\"list mbr-fonts-style\" mbr-theme-style=\"display-4\" data-app-selector=\".list\" data-multiline mbr-article>\n                    <li class=\"mbr-text item-wrap\"><br></li>\n                    <li class=\"mbr-text item-wrap\"><br></li>\n                </ul>\n            </div>\n            <div class=\"footer_col\">\n                <h5 mbr-text class=\"mbr-section-subtitle mbr-fonts-style\" data-app-selector=\".mbr-section-subtitle\" mbr-theme-style=\"display-7\" mbr-if=\"showTitle\"><b>Extensions</b>\n                </h5>\n                <ul class=\"list mbr-fonts-style\" mbr-theme-style=\"display-4\" data-app-selector=\".list\" data-multiline mbr-article>\n                    <li class=\"mbr-text item-wrap\">Contact Us</li><li class=\"mbr-text item-wrap\">FAQ</li>\n                </ul>\n            </div>\n            <div class=\"footer_col\">\n                <h5 mbr-text class=\"mbr-section-subtitle mbr-fonts-style\" data-app-selector=\".mbr-section-subtitle\" mbr-theme-style=\"display-7\" mbr-if=\"showTitle\">\n                    <b>App</b></h5>\n                <ul class=\"list mbr-fonts-style\" mbr-theme-style=\"display-4\" data-app-selector=\".list\" data-multiline mbr-article>\n                    <li class=\"mbr-text item-wrap\">About Us</li>\n                    <li class=\"mbr-text item-wrap\">News</li>\n                    <li class=\"mbr-text item-wrap\">Site info</li>\n                </ul>\n            </div>\n        </div>\n    </div>\n</section>",
+          "_cid": "sAiENL4Zwm",
+          "_protectedParams": [],
+          "_global": true,
+          "_once": "footer",
+          "_params": {},
+          "_anchor": "footer2-3b"
         }
       ]
     },
@@ -4418,6 +5128,148 @@
           "_global": true,
           "_once": "menu",
           "_params": {}
+        },
+        {
+          "alias": false,
+          "_styles": {
+            "padding-top": "(@paddingTop * 1rem)",
+            "padding-bottom": "(@paddingBottom * 1rem)",
+            "& when (@bg-type = 'image')": {
+              "background-image": "url(@bg-value)"
+            },
+            "& when (@bg-type = 'color')": {
+              "background-color": "@bg-value"
+            },
+            ".footer_col_logo": {
+              "width": "40%"
+            },
+            ".footer_col": {
+              "width": "20%"
+            },
+            ".list": {
+              "list-style": "none",
+              "padding": "0",
+              "margin": "0",
+              "color": "#ffffff"
+            },
+            ".logo_wrap": {
+              "max-width": "(@logoSize * 10%)",
+              "img": {
+                "width": "100%",
+                "max-height": "150px"
+              }
+            },
+            ".brand_name": {
+              "color": "#ffffff"
+            },
+            ".contacts": {
+              "margin-top": "46px",
+              "p": {
+                "line-height": "33px",
+                "margin-bottom": "0"
+              },
+              "b": {
+                "color": "#ffffff"
+              }
+            },
+            ".mbr-section-subtitle": {
+              "font-weight": "700",
+              "line-height": "1.1em",
+              "margin-bottom": "43px",
+              "color": "#ffffff"
+            },
+            ".item-wrap": {
+              "line-height": "44px"
+            },
+            "a.text-white": {
+              "color": "#a99fc5 !important",
+              "&:hover": {
+                "color": "#ffffff !important"
+              }
+            },
+            ".item-wrap a, .contacts a": {
+              "display": "inline-block",
+              "line-height": "1.87",
+              "position": "relative",
+              "transition": "0.6s cubic-bezier(0.165, 0.84, 0.44, 1)",
+              "&:before": {
+                "width": "0",
+                "left": "auto",
+                "right": "0",
+                "bottom": "5px",
+                "height": "1px",
+                "content": "\"\"",
+                "position": "absolute",
+                "transition": "width 0.2s linear",
+                "background": "#ffffff"
+              },
+              "&:hover::before": {
+                "left": "0",
+                "width": "100%",
+                "right": "auto"
+              }
+            },
+            ".image": {
+              "margin-top": "30px",
+              "max-width": "200px",
+              "img": {
+                "width": "100%",
+                "object-fit": "contain"
+              }
+            },
+            "@media (max-width: 991px)": {
+              ".row > [class*=\"col\"]": {
+                "padding-left": "1rem",
+                "padding-right": "1rem"
+              },
+              ".footer_col_logo": {
+                "width": "100%"
+              },
+              ".footer_col": {
+                "width": "33.3%"
+              },
+              ".image": {
+                "margin-bottom": "40px"
+              },
+              ".contacts": {
+                "margin-top": "30px",
+                "margin-bottom": "28px"
+              },
+              ".mbr-section-subtitle": {
+                "margin-bottom": "20px"
+              },
+              ".item-wrap": {
+                "line-height": "36px"
+              }
+            },
+            "@media (max-width: 767px)": {
+              ".row": {
+                "justify-content": "center",
+                "text-align": "center"
+              },
+              ".mbr-section-btn": {
+                "position": "absolute",
+                "right": "10px",
+                "left": "auto"
+              },
+              ".footer_col": {
+                "margin-top": "40px",
+                "width": "100%"
+              },
+              ".image": {
+                "margin": "auto",
+                "margin-top": "30px"
+              }
+            }
+          },
+          "_name": "footer2",
+          "_customHTML": "<section class=\"firmm4_footer2\" group=\"Footers\" data-bg-video=\"{{bg.type == 'video' && bg.value.url}}\" global once=\"footer\" mbr-class=\"{\n    'mbr-parallax-background': bg.parallax}\">\n\n    <mbr-parameters>\n        <header>Size</header>\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"10\" step=\"1\" value=\"5\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"10\" step=\"1\" value=\"5\">\n        <header>Show/Hide</header>\n        <input type=\"checkbox\" title=\"Title\" name=\"showTitle\">\n        <input type=\"checkbox\" title=\"Contacts\" name=\"showContacts\" checked>\n        <input type=\"checkbox\" title=\"Image\" name=\"showImage\">\n        <select name=\"showLogo\" title=\"Logo\">\n            <option value=\"1\">Logo</option>\n            <option value=\"2\" selected>Brand</option>\n        </select>\n        <input type=\"range\" inline title=\"Logo Size\" name=\"logoSize\" min=\"1\" max=\"10\" step=\"1\" value=\"1\" condition=\"showLogo == 1\">\n        <header>Background</header>\n        <fieldset type=\"background\" name=\"bg\" parallax>\n            <input type=\"image\" title=\"Image\" value=\"@ADDONS_PATH@/firmm4/components/_images/background/background.jpg\">\n            <input type=\"color\" title=\"Color\" value=\"#051441\" selected>\n        </fieldset>\n        <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\" checked>\n        <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#ffffff\" condition=\"overlay && bg.type !== 'color'\">\n        <input type=\"range\" inline title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.6\" condition=\"overlay && bg.type !== 'color'\">\n    </mbr-parameters>\n    \n    <div class=\"mbr-overlay\" mbr-if=\"overlay && bg.type !== 'color'\" opacity=\"{{overlayOpacity}}\" bg-color=\"{{overlayColor}}\"></div>\n    \n    <div mbr-class=\"{'container': !fullWidth, 'container-fluid': fullWidth}\">\n        <div class=\"row\">\n            <div class=\"footer_col_logo\">\n                <div class=\"logo_wrap\" mbr-if=\"showLogo == 1\">\n                    <a href=\"#\">\n                        <img src=\"@ADDONS_PATH@/firmm4/components/_images/logo.png\" alt=\"Mobirise\">\n                    </a>\n                </div>\n                <div class=\"brand_wrap\" mbr-if=\"showLogo == 2\">\n                    <h3 mbr-theme-style=\"display-5\" class=\"brand_name mb-0\" data-app-selector=\".brand_name\"><b>UChuuz Services</b></h3>\n                </div>\n                <div class=\"contacts\" mbr-if=\"showContacts\">\n                    <p class=\"contacts_mail mbr-fonts-style\" mbr-theme-style=\"display-4\" data-app-selector=\".contacts_mail\"><font color=\"#ffffff\"><b>123 Street Name</b></font></p>\n                    <p class=\"contacts_phone mbr-fonts-style\" mbr-theme-style=\"display-4\" data-app-selector=\".contacts_phone\"><font color=\"#ffffff\"><b>Singapore 123456</b></font></p>\n                </div>\n                <div class=\"image\" mbr-if=\"showImage\">\n                    <img src=\"@PROJECT_PATH@/assets/images/uchuuz%20services%20logo-400x431.png\" alt>\n                </div>\n            </div>   \n            <div class=\"footer_col\">\n                <h5 mbr-text class=\"mbr-section-subtitle mbr-fonts-style\" data-app-selector=\".mbr-section-subtitle\" mbr-theme-style=\"display-7\" mbr-if=\"showTitle\"><b>Help</b>\n                </h5>\n                <ul class=\"list mbr-fonts-style\" mbr-theme-style=\"display-4\" data-app-selector=\".list\" data-multiline mbr-article>\n                    <li class=\"mbr-text item-wrap\"><br></li>\n                    <li class=\"mbr-text item-wrap\"><br></li>\n                </ul>\n            </div>\n            <div class=\"footer_col\">\n                <h5 mbr-text class=\"mbr-section-subtitle mbr-fonts-style\" data-app-selector=\".mbr-section-subtitle\" mbr-theme-style=\"display-7\" mbr-if=\"showTitle\"><b>Extensions</b>\n                </h5>\n                <ul class=\"list mbr-fonts-style\" mbr-theme-style=\"display-4\" data-app-selector=\".list\" data-multiline mbr-article>\n                    <li class=\"mbr-text item-wrap\">Contact Us</li><li class=\"mbr-text item-wrap\">FAQ</li>\n                </ul>\n            </div>\n            <div class=\"footer_col\">\n                <h5 mbr-text class=\"mbr-section-subtitle mbr-fonts-style\" data-app-selector=\".mbr-section-subtitle\" mbr-theme-style=\"display-7\" mbr-if=\"showTitle\">\n                    <b>App</b></h5>\n                <ul class=\"list mbr-fonts-style\" mbr-theme-style=\"display-4\" data-app-selector=\".list\" data-multiline mbr-article>\n                    <li class=\"mbr-text item-wrap\">About Us</li>\n                    <li class=\"mbr-text item-wrap\">News</li>\n                    <li class=\"mbr-text item-wrap\">Site info</li>\n                </ul>\n            </div>\n        </div>\n    </div>\n</section>",
+          "_cid": "sAiENL4Zwm",
+          "_protectedParams": [],
+          "_global": true,
+          "_once": "footer",
+          "_params": {},
+          "_anchor": "footer2-3b"
         }
       ]
     },
@@ -4926,6 +5778,148 @@
           "_global": true,
           "_once": "menu",
           "_params": {}
+        },
+        {
+          "alias": false,
+          "_styles": {
+            "padding-top": "(@paddingTop * 1rem)",
+            "padding-bottom": "(@paddingBottom * 1rem)",
+            "& when (@bg-type = 'image')": {
+              "background-image": "url(@bg-value)"
+            },
+            "& when (@bg-type = 'color')": {
+              "background-color": "@bg-value"
+            },
+            ".footer_col_logo": {
+              "width": "40%"
+            },
+            ".footer_col": {
+              "width": "20%"
+            },
+            ".list": {
+              "list-style": "none",
+              "padding": "0",
+              "margin": "0",
+              "color": "#ffffff"
+            },
+            ".logo_wrap": {
+              "max-width": "(@logoSize * 10%)",
+              "img": {
+                "width": "100%",
+                "max-height": "150px"
+              }
+            },
+            ".brand_name": {
+              "color": "#ffffff"
+            },
+            ".contacts": {
+              "margin-top": "46px",
+              "p": {
+                "line-height": "33px",
+                "margin-bottom": "0"
+              },
+              "b": {
+                "color": "#ffffff"
+              }
+            },
+            ".mbr-section-subtitle": {
+              "font-weight": "700",
+              "line-height": "1.1em",
+              "margin-bottom": "43px",
+              "color": "#ffffff"
+            },
+            ".item-wrap": {
+              "line-height": "44px"
+            },
+            "a.text-white": {
+              "color": "#a99fc5 !important",
+              "&:hover": {
+                "color": "#ffffff !important"
+              }
+            },
+            ".item-wrap a, .contacts a": {
+              "display": "inline-block",
+              "line-height": "1.87",
+              "position": "relative",
+              "transition": "0.6s cubic-bezier(0.165, 0.84, 0.44, 1)",
+              "&:before": {
+                "width": "0",
+                "left": "auto",
+                "right": "0",
+                "bottom": "5px",
+                "height": "1px",
+                "content": "\"\"",
+                "position": "absolute",
+                "transition": "width 0.2s linear",
+                "background": "#ffffff"
+              },
+              "&:hover::before": {
+                "left": "0",
+                "width": "100%",
+                "right": "auto"
+              }
+            },
+            ".image": {
+              "margin-top": "30px",
+              "max-width": "200px",
+              "img": {
+                "width": "100%",
+                "object-fit": "contain"
+              }
+            },
+            "@media (max-width: 991px)": {
+              ".row > [class*=\"col\"]": {
+                "padding-left": "1rem",
+                "padding-right": "1rem"
+              },
+              ".footer_col_logo": {
+                "width": "100%"
+              },
+              ".footer_col": {
+                "width": "33.3%"
+              },
+              ".image": {
+                "margin-bottom": "40px"
+              },
+              ".contacts": {
+                "margin-top": "30px",
+                "margin-bottom": "28px"
+              },
+              ".mbr-section-subtitle": {
+                "margin-bottom": "20px"
+              },
+              ".item-wrap": {
+                "line-height": "36px"
+              }
+            },
+            "@media (max-width: 767px)": {
+              ".row": {
+                "justify-content": "center",
+                "text-align": "center"
+              },
+              ".mbr-section-btn": {
+                "position": "absolute",
+                "right": "10px",
+                "left": "auto"
+              },
+              ".footer_col": {
+                "margin-top": "40px",
+                "width": "100%"
+              },
+              ".image": {
+                "margin": "auto",
+                "margin-top": "30px"
+              }
+            }
+          },
+          "_name": "footer2",
+          "_customHTML": "<section class=\"firmm4_footer2\" group=\"Footers\" data-bg-video=\"{{bg.type == 'video' && bg.value.url}}\" global once=\"footer\" mbr-class=\"{\n    'mbr-parallax-background': bg.parallax}\">\n\n    <mbr-parameters>\n        <header>Size</header>\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"10\" step=\"1\" value=\"5\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"10\" step=\"1\" value=\"5\">\n        <header>Show/Hide</header>\n        <input type=\"checkbox\" title=\"Title\" name=\"showTitle\">\n        <input type=\"checkbox\" title=\"Contacts\" name=\"showContacts\" checked>\n        <input type=\"checkbox\" title=\"Image\" name=\"showImage\">\n        <select name=\"showLogo\" title=\"Logo\">\n            <option value=\"1\">Logo</option>\n            <option value=\"2\" selected>Brand</option>\n        </select>\n        <input type=\"range\" inline title=\"Logo Size\" name=\"logoSize\" min=\"1\" max=\"10\" step=\"1\" value=\"1\" condition=\"showLogo == 1\">\n        <header>Background</header>\n        <fieldset type=\"background\" name=\"bg\" parallax>\n            <input type=\"image\" title=\"Image\" value=\"@ADDONS_PATH@/firmm4/components/_images/background/background.jpg\">\n            <input type=\"color\" title=\"Color\" value=\"#051441\" selected>\n        </fieldset>\n        <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\" checked>\n        <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#ffffff\" condition=\"overlay && bg.type !== 'color'\">\n        <input type=\"range\" inline title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.6\" condition=\"overlay && bg.type !== 'color'\">\n    </mbr-parameters>\n    \n    <div class=\"mbr-overlay\" mbr-if=\"overlay && bg.type !== 'color'\" opacity=\"{{overlayOpacity}}\" bg-color=\"{{overlayColor}}\"></div>\n    \n    <div mbr-class=\"{'container': !fullWidth, 'container-fluid': fullWidth}\">\n        <div class=\"row\">\n            <div class=\"footer_col_logo\">\n                <div class=\"logo_wrap\" mbr-if=\"showLogo == 1\">\n                    <a href=\"#\">\n                        <img src=\"@ADDONS_PATH@/firmm4/components/_images/logo.png\" alt=\"Mobirise\">\n                    </a>\n                </div>\n                <div class=\"brand_wrap\" mbr-if=\"showLogo == 2\">\n                    <h3 mbr-theme-style=\"display-5\" class=\"brand_name mb-0\" data-app-selector=\".brand_name\"><b>UChuuz Services</b></h3>\n                </div>\n                <div class=\"contacts\" mbr-if=\"showContacts\">\n                    <p class=\"contacts_mail mbr-fonts-style\" mbr-theme-style=\"display-4\" data-app-selector=\".contacts_mail\"><font color=\"#ffffff\"><b>123 Street Name</b></font></p>\n                    <p class=\"contacts_phone mbr-fonts-style\" mbr-theme-style=\"display-4\" data-app-selector=\".contacts_phone\"><font color=\"#ffffff\"><b>Singapore 123456</b></font></p>\n                </div>\n                <div class=\"image\" mbr-if=\"showImage\">\n                    <img src=\"@PROJECT_PATH@/assets/images/uchuuz%20services%20logo-400x431.png\" alt>\n                </div>\n            </div>   \n            <div class=\"footer_col\">\n                <h5 mbr-text class=\"mbr-section-subtitle mbr-fonts-style\" data-app-selector=\".mbr-section-subtitle\" mbr-theme-style=\"display-7\" mbr-if=\"showTitle\"><b>Help</b>\n                </h5>\n                <ul class=\"list mbr-fonts-style\" mbr-theme-style=\"display-4\" data-app-selector=\".list\" data-multiline mbr-article>\n                    <li class=\"mbr-text item-wrap\"><br></li>\n                    <li class=\"mbr-text item-wrap\"><br></li>\n                </ul>\n            </div>\n            <div class=\"footer_col\">\n                <h5 mbr-text class=\"mbr-section-subtitle mbr-fonts-style\" data-app-selector=\".mbr-section-subtitle\" mbr-theme-style=\"display-7\" mbr-if=\"showTitle\"><b>Extensions</b>\n                </h5>\n                <ul class=\"list mbr-fonts-style\" mbr-theme-style=\"display-4\" data-app-selector=\".list\" data-multiline mbr-article>\n                    <li class=\"mbr-text item-wrap\">Contact Us</li><li class=\"mbr-text item-wrap\">FAQ</li>\n                </ul>\n            </div>\n            <div class=\"footer_col\">\n                <h5 mbr-text class=\"mbr-section-subtitle mbr-fonts-style\" data-app-selector=\".mbr-section-subtitle\" mbr-theme-style=\"display-7\" mbr-if=\"showTitle\">\n                    <b>App</b></h5>\n                <ul class=\"list mbr-fonts-style\" mbr-theme-style=\"display-4\" data-app-selector=\".list\" data-multiline mbr-article>\n                    <li class=\"mbr-text item-wrap\">About Us</li>\n                    <li class=\"mbr-text item-wrap\">News</li>\n                    <li class=\"mbr-text item-wrap\">Site info</li>\n                </ul>\n            </div>\n        </div>\n    </div>\n</section>",
+          "_cid": "sAiENL4Zwm",
+          "_protectedParams": [],
+          "_global": true,
+          "_once": "footer",
+          "_params": {},
+          "_anchor": "footer2-3b"
         }
       ]
     },
@@ -5434,6 +6428,148 @@
           "_global": true,
           "_once": "menu",
           "_params": {}
+        },
+        {
+          "alias": false,
+          "_styles": {
+            "padding-top": "(@paddingTop * 1rem)",
+            "padding-bottom": "(@paddingBottom * 1rem)",
+            "& when (@bg-type = 'image')": {
+              "background-image": "url(@bg-value)"
+            },
+            "& when (@bg-type = 'color')": {
+              "background-color": "@bg-value"
+            },
+            ".footer_col_logo": {
+              "width": "40%"
+            },
+            ".footer_col": {
+              "width": "20%"
+            },
+            ".list": {
+              "list-style": "none",
+              "padding": "0",
+              "margin": "0",
+              "color": "#ffffff"
+            },
+            ".logo_wrap": {
+              "max-width": "(@logoSize * 10%)",
+              "img": {
+                "width": "100%",
+                "max-height": "150px"
+              }
+            },
+            ".brand_name": {
+              "color": "#ffffff"
+            },
+            ".contacts": {
+              "margin-top": "46px",
+              "p": {
+                "line-height": "33px",
+                "margin-bottom": "0"
+              },
+              "b": {
+                "color": "#ffffff"
+              }
+            },
+            ".mbr-section-subtitle": {
+              "font-weight": "700",
+              "line-height": "1.1em",
+              "margin-bottom": "43px",
+              "color": "#ffffff"
+            },
+            ".item-wrap": {
+              "line-height": "44px"
+            },
+            "a.text-white": {
+              "color": "#a99fc5 !important",
+              "&:hover": {
+                "color": "#ffffff !important"
+              }
+            },
+            ".item-wrap a, .contacts a": {
+              "display": "inline-block",
+              "line-height": "1.87",
+              "position": "relative",
+              "transition": "0.6s cubic-bezier(0.165, 0.84, 0.44, 1)",
+              "&:before": {
+                "width": "0",
+                "left": "auto",
+                "right": "0",
+                "bottom": "5px",
+                "height": "1px",
+                "content": "\"\"",
+                "position": "absolute",
+                "transition": "width 0.2s linear",
+                "background": "#ffffff"
+              },
+              "&:hover::before": {
+                "left": "0",
+                "width": "100%",
+                "right": "auto"
+              }
+            },
+            ".image": {
+              "margin-top": "30px",
+              "max-width": "200px",
+              "img": {
+                "width": "100%",
+                "object-fit": "contain"
+              }
+            },
+            "@media (max-width: 991px)": {
+              ".row > [class*=\"col\"]": {
+                "padding-left": "1rem",
+                "padding-right": "1rem"
+              },
+              ".footer_col_logo": {
+                "width": "100%"
+              },
+              ".footer_col": {
+                "width": "33.3%"
+              },
+              ".image": {
+                "margin-bottom": "40px"
+              },
+              ".contacts": {
+                "margin-top": "30px",
+                "margin-bottom": "28px"
+              },
+              ".mbr-section-subtitle": {
+                "margin-bottom": "20px"
+              },
+              ".item-wrap": {
+                "line-height": "36px"
+              }
+            },
+            "@media (max-width: 767px)": {
+              ".row": {
+                "justify-content": "center",
+                "text-align": "center"
+              },
+              ".mbr-section-btn": {
+                "position": "absolute",
+                "right": "10px",
+                "left": "auto"
+              },
+              ".footer_col": {
+                "margin-top": "40px",
+                "width": "100%"
+              },
+              ".image": {
+                "margin": "auto",
+                "margin-top": "30px"
+              }
+            }
+          },
+          "_name": "footer2",
+          "_customHTML": "<section class=\"firmm4_footer2\" group=\"Footers\" data-bg-video=\"{{bg.type == 'video' && bg.value.url}}\" global once=\"footer\" mbr-class=\"{\n    'mbr-parallax-background': bg.parallax}\">\n\n    <mbr-parameters>\n        <header>Size</header>\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"10\" step=\"1\" value=\"5\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"10\" step=\"1\" value=\"5\">\n        <header>Show/Hide</header>\n        <input type=\"checkbox\" title=\"Title\" name=\"showTitle\">\n        <input type=\"checkbox\" title=\"Contacts\" name=\"showContacts\" checked>\n        <input type=\"checkbox\" title=\"Image\" name=\"showImage\">\n        <select name=\"showLogo\" title=\"Logo\">\n            <option value=\"1\">Logo</option>\n            <option value=\"2\" selected>Brand</option>\n        </select>\n        <input type=\"range\" inline title=\"Logo Size\" name=\"logoSize\" min=\"1\" max=\"10\" step=\"1\" value=\"1\" condition=\"showLogo == 1\">\n        <header>Background</header>\n        <fieldset type=\"background\" name=\"bg\" parallax>\n            <input type=\"image\" title=\"Image\" value=\"@ADDONS_PATH@/firmm4/components/_images/background/background.jpg\">\n            <input type=\"color\" title=\"Color\" value=\"#051441\" selected>\n        </fieldset>\n        <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\" checked>\n        <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#ffffff\" condition=\"overlay && bg.type !== 'color'\">\n        <input type=\"range\" inline title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.6\" condition=\"overlay && bg.type !== 'color'\">\n    </mbr-parameters>\n    \n    <div class=\"mbr-overlay\" mbr-if=\"overlay && bg.type !== 'color'\" opacity=\"{{overlayOpacity}}\" bg-color=\"{{overlayColor}}\"></div>\n    \n    <div mbr-class=\"{'container': !fullWidth, 'container-fluid': fullWidth}\">\n        <div class=\"row\">\n            <div class=\"footer_col_logo\">\n                <div class=\"logo_wrap\" mbr-if=\"showLogo == 1\">\n                    <a href=\"#\">\n                        <img src=\"@ADDONS_PATH@/firmm4/components/_images/logo.png\" alt=\"Mobirise\">\n                    </a>\n                </div>\n                <div class=\"brand_wrap\" mbr-if=\"showLogo == 2\">\n                    <h3 mbr-theme-style=\"display-5\" class=\"brand_name mb-0\" data-app-selector=\".brand_name\"><b>UChuuz Services</b></h3>\n                </div>\n                <div class=\"contacts\" mbr-if=\"showContacts\">\n                    <p class=\"contacts_mail mbr-fonts-style\" mbr-theme-style=\"display-4\" data-app-selector=\".contacts_mail\"><font color=\"#ffffff\"><b>123 Street Name</b></font></p>\n                    <p class=\"contacts_phone mbr-fonts-style\" mbr-theme-style=\"display-4\" data-app-selector=\".contacts_phone\"><font color=\"#ffffff\"><b>Singapore 123456</b></font></p>\n                </div>\n                <div class=\"image\" mbr-if=\"showImage\">\n                    <img src=\"@PROJECT_PATH@/assets/images/uchuuz%20services%20logo-400x431.png\" alt>\n                </div>\n            </div>   \n            <div class=\"footer_col\">\n                <h5 mbr-text class=\"mbr-section-subtitle mbr-fonts-style\" data-app-selector=\".mbr-section-subtitle\" mbr-theme-style=\"display-7\" mbr-if=\"showTitle\"><b>Help</b>\n                </h5>\n                <ul class=\"list mbr-fonts-style\" mbr-theme-style=\"display-4\" data-app-selector=\".list\" data-multiline mbr-article>\n                    <li class=\"mbr-text item-wrap\"><br></li>\n                    <li class=\"mbr-text item-wrap\"><br></li>\n                </ul>\n            </div>\n            <div class=\"footer_col\">\n                <h5 mbr-text class=\"mbr-section-subtitle mbr-fonts-style\" data-app-selector=\".mbr-section-subtitle\" mbr-theme-style=\"display-7\" mbr-if=\"showTitle\"><b>Extensions</b>\n                </h5>\n                <ul class=\"list mbr-fonts-style\" mbr-theme-style=\"display-4\" data-app-selector=\".list\" data-multiline mbr-article>\n                    <li class=\"mbr-text item-wrap\">Contact Us</li><li class=\"mbr-text item-wrap\">FAQ</li>\n                </ul>\n            </div>\n            <div class=\"footer_col\">\n                <h5 mbr-text class=\"mbr-section-subtitle mbr-fonts-style\" data-app-selector=\".mbr-section-subtitle\" mbr-theme-style=\"display-7\" mbr-if=\"showTitle\">\n                    <b>App</b></h5>\n                <ul class=\"list mbr-fonts-style\" mbr-theme-style=\"display-4\" data-app-selector=\".list\" data-multiline mbr-article>\n                    <li class=\"mbr-text item-wrap\">About Us</li>\n                    <li class=\"mbr-text item-wrap\">News</li>\n                    <li class=\"mbr-text item-wrap\">Site info</li>\n                </ul>\n            </div>\n        </div>\n    </div>\n</section>",
+          "_cid": "sAiENL4Zwm",
+          "_protectedParams": [],
+          "_global": true,
+          "_once": "footer",
+          "_params": {},
+          "_anchor": "footer2-3b"
         }
       ]
     },
@@ -6024,6 +7160,148 @@
           "_global": false,
           "_once": false,
           "_params": {}
+        },
+        {
+          "alias": false,
+          "_styles": {
+            "padding-top": "(@paddingTop * 1rem)",
+            "padding-bottom": "(@paddingBottom * 1rem)",
+            "& when (@bg-type = 'image')": {
+              "background-image": "url(@bg-value)"
+            },
+            "& when (@bg-type = 'color')": {
+              "background-color": "@bg-value"
+            },
+            ".footer_col_logo": {
+              "width": "40%"
+            },
+            ".footer_col": {
+              "width": "20%"
+            },
+            ".list": {
+              "list-style": "none",
+              "padding": "0",
+              "margin": "0",
+              "color": "#ffffff"
+            },
+            ".logo_wrap": {
+              "max-width": "(@logoSize * 10%)",
+              "img": {
+                "width": "100%",
+                "max-height": "150px"
+              }
+            },
+            ".brand_name": {
+              "color": "#ffffff"
+            },
+            ".contacts": {
+              "margin-top": "46px",
+              "p": {
+                "line-height": "33px",
+                "margin-bottom": "0"
+              },
+              "b": {
+                "color": "#ffffff"
+              }
+            },
+            ".mbr-section-subtitle": {
+              "font-weight": "700",
+              "line-height": "1.1em",
+              "margin-bottom": "43px",
+              "color": "#ffffff"
+            },
+            ".item-wrap": {
+              "line-height": "44px"
+            },
+            "a.text-white": {
+              "color": "#a99fc5 !important",
+              "&:hover": {
+                "color": "#ffffff !important"
+              }
+            },
+            ".item-wrap a, .contacts a": {
+              "display": "inline-block",
+              "line-height": "1.87",
+              "position": "relative",
+              "transition": "0.6s cubic-bezier(0.165, 0.84, 0.44, 1)",
+              "&:before": {
+                "width": "0",
+                "left": "auto",
+                "right": "0",
+                "bottom": "5px",
+                "height": "1px",
+                "content": "\"\"",
+                "position": "absolute",
+                "transition": "width 0.2s linear",
+                "background": "#ffffff"
+              },
+              "&:hover::before": {
+                "left": "0",
+                "width": "100%",
+                "right": "auto"
+              }
+            },
+            ".image": {
+              "margin-top": "30px",
+              "max-width": "200px",
+              "img": {
+                "width": "100%",
+                "object-fit": "contain"
+              }
+            },
+            "@media (max-width: 991px)": {
+              ".row > [class*=\"col\"]": {
+                "padding-left": "1rem",
+                "padding-right": "1rem"
+              },
+              ".footer_col_logo": {
+                "width": "100%"
+              },
+              ".footer_col": {
+                "width": "33.3%"
+              },
+              ".image": {
+                "margin-bottom": "40px"
+              },
+              ".contacts": {
+                "margin-top": "30px",
+                "margin-bottom": "28px"
+              },
+              ".mbr-section-subtitle": {
+                "margin-bottom": "20px"
+              },
+              ".item-wrap": {
+                "line-height": "36px"
+              }
+            },
+            "@media (max-width: 767px)": {
+              ".row": {
+                "justify-content": "center",
+                "text-align": "center"
+              },
+              ".mbr-section-btn": {
+                "position": "absolute",
+                "right": "10px",
+                "left": "auto"
+              },
+              ".footer_col": {
+                "margin-top": "40px",
+                "width": "100%"
+              },
+              ".image": {
+                "margin": "auto",
+                "margin-top": "30px"
+              }
+            }
+          },
+          "_name": "footer2",
+          "_customHTML": "<section class=\"firmm4_footer2\" group=\"Footers\" data-bg-video=\"{{bg.type == 'video' && bg.value.url}}\" global once=\"footer\" mbr-class=\"{\n    'mbr-parallax-background': bg.parallax}\">\n\n    <mbr-parameters>\n        <header>Size</header>\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"10\" step=\"1\" value=\"5\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"10\" step=\"1\" value=\"5\">\n        <header>Show/Hide</header>\n        <input type=\"checkbox\" title=\"Title\" name=\"showTitle\">\n        <input type=\"checkbox\" title=\"Contacts\" name=\"showContacts\" checked>\n        <input type=\"checkbox\" title=\"Image\" name=\"showImage\">\n        <select name=\"showLogo\" title=\"Logo\">\n            <option value=\"1\">Logo</option>\n            <option value=\"2\" selected>Brand</option>\n        </select>\n        <input type=\"range\" inline title=\"Logo Size\" name=\"logoSize\" min=\"1\" max=\"10\" step=\"1\" value=\"1\" condition=\"showLogo == 1\">\n        <header>Background</header>\n        <fieldset type=\"background\" name=\"bg\" parallax>\n            <input type=\"image\" title=\"Image\" value=\"@ADDONS_PATH@/firmm4/components/_images/background/background.jpg\">\n            <input type=\"color\" title=\"Color\" value=\"#051441\" selected>\n        </fieldset>\n        <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\" checked>\n        <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#ffffff\" condition=\"overlay && bg.type !== 'color'\">\n        <input type=\"range\" inline title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.6\" condition=\"overlay && bg.type !== 'color'\">\n    </mbr-parameters>\n    \n    <div class=\"mbr-overlay\" mbr-if=\"overlay && bg.type !== 'color'\" opacity=\"{{overlayOpacity}}\" bg-color=\"{{overlayColor}}\"></div>\n    \n    <div mbr-class=\"{'container': !fullWidth, 'container-fluid': fullWidth}\">\n        <div class=\"row\">\n            <div class=\"footer_col_logo\">\n                <div class=\"logo_wrap\" mbr-if=\"showLogo == 1\">\n                    <a href=\"#\">\n                        <img src=\"@ADDONS_PATH@/firmm4/components/_images/logo.png\" alt=\"Mobirise\">\n                    </a>\n                </div>\n                <div class=\"brand_wrap\" mbr-if=\"showLogo == 2\">\n                    <h3 mbr-theme-style=\"display-5\" class=\"brand_name mb-0\" data-app-selector=\".brand_name\"><b>UChuuz Services</b></h3>\n                </div>\n                <div class=\"contacts\" mbr-if=\"showContacts\">\n                    <p class=\"contacts_mail mbr-fonts-style\" mbr-theme-style=\"display-4\" data-app-selector=\".contacts_mail\"><font color=\"#ffffff\"><b>123 Street Name</b></font></p>\n                    <p class=\"contacts_phone mbr-fonts-style\" mbr-theme-style=\"display-4\" data-app-selector=\".contacts_phone\"><font color=\"#ffffff\"><b>Singapore 123456</b></font></p>\n                </div>\n                <div class=\"image\" mbr-if=\"showImage\">\n                    <img src=\"@PROJECT_PATH@/assets/images/uchuuz%20services%20logo-400x431.png\" alt>\n                </div>\n            </div>   \n            <div class=\"footer_col\">\n                <h5 mbr-text class=\"mbr-section-subtitle mbr-fonts-style\" data-app-selector=\".mbr-section-subtitle\" mbr-theme-style=\"display-7\" mbr-if=\"showTitle\"><b>Help</b>\n                </h5>\n                <ul class=\"list mbr-fonts-style\" mbr-theme-style=\"display-4\" data-app-selector=\".list\" data-multiline mbr-article>\n                    <li class=\"mbr-text item-wrap\"><br></li>\n                    <li class=\"mbr-text item-wrap\"><br></li>\n                </ul>\n            </div>\n            <div class=\"footer_col\">\n                <h5 mbr-text class=\"mbr-section-subtitle mbr-fonts-style\" data-app-selector=\".mbr-section-subtitle\" mbr-theme-style=\"display-7\" mbr-if=\"showTitle\"><b>Extensions</b>\n                </h5>\n                <ul class=\"list mbr-fonts-style\" mbr-theme-style=\"display-4\" data-app-selector=\".list\" data-multiline mbr-article>\n                    <li class=\"mbr-text item-wrap\">Contact Us</li><li class=\"mbr-text item-wrap\">FAQ</li>\n                </ul>\n            </div>\n            <div class=\"footer_col\">\n                <h5 mbr-text class=\"mbr-section-subtitle mbr-fonts-style\" data-app-selector=\".mbr-section-subtitle\" mbr-theme-style=\"display-7\" mbr-if=\"showTitle\">\n                    <b>App</b></h5>\n                <ul class=\"list mbr-fonts-style\" mbr-theme-style=\"display-4\" data-app-selector=\".list\" data-multiline mbr-article>\n                    <li class=\"mbr-text item-wrap\">About Us</li>\n                    <li class=\"mbr-text item-wrap\">News</li>\n                    <li class=\"mbr-text item-wrap\">Site info</li>\n                </ul>\n            </div>\n        </div>\n    </div>\n</section>",
+          "_cid": "sAiENL4Zwm",
+          "_protectedParams": [],
+          "_global": true,
+          "_once": "footer",
+          "_params": {},
+          "_anchor": "footer2-3b"
         }
       ]
     },
@@ -6753,6 +8031,148 @@
           "_global": false,
           "_once": false,
           "_params": {}
+        },
+        {
+          "alias": false,
+          "_styles": {
+            "padding-top": "(@paddingTop * 1rem)",
+            "padding-bottom": "(@paddingBottom * 1rem)",
+            "& when (@bg-type = 'image')": {
+              "background-image": "url(@bg-value)"
+            },
+            "& when (@bg-type = 'color')": {
+              "background-color": "@bg-value"
+            },
+            ".footer_col_logo": {
+              "width": "40%"
+            },
+            ".footer_col": {
+              "width": "20%"
+            },
+            ".list": {
+              "list-style": "none",
+              "padding": "0",
+              "margin": "0",
+              "color": "#ffffff"
+            },
+            ".logo_wrap": {
+              "max-width": "(@logoSize * 10%)",
+              "img": {
+                "width": "100%",
+                "max-height": "150px"
+              }
+            },
+            ".brand_name": {
+              "color": "#ffffff"
+            },
+            ".contacts": {
+              "margin-top": "46px",
+              "p": {
+                "line-height": "33px",
+                "margin-bottom": "0"
+              },
+              "b": {
+                "color": "#ffffff"
+              }
+            },
+            ".mbr-section-subtitle": {
+              "font-weight": "700",
+              "line-height": "1.1em",
+              "margin-bottom": "43px",
+              "color": "#ffffff"
+            },
+            ".item-wrap": {
+              "line-height": "44px"
+            },
+            "a.text-white": {
+              "color": "#a99fc5 !important",
+              "&:hover": {
+                "color": "#ffffff !important"
+              }
+            },
+            ".item-wrap a, .contacts a": {
+              "display": "inline-block",
+              "line-height": "1.87",
+              "position": "relative",
+              "transition": "0.6s cubic-bezier(0.165, 0.84, 0.44, 1)",
+              "&:before": {
+                "width": "0",
+                "left": "auto",
+                "right": "0",
+                "bottom": "5px",
+                "height": "1px",
+                "content": "\"\"",
+                "position": "absolute",
+                "transition": "width 0.2s linear",
+                "background": "#ffffff"
+              },
+              "&:hover::before": {
+                "left": "0",
+                "width": "100%",
+                "right": "auto"
+              }
+            },
+            ".image": {
+              "margin-top": "30px",
+              "max-width": "200px",
+              "img": {
+                "width": "100%",
+                "object-fit": "contain"
+              }
+            },
+            "@media (max-width: 991px)": {
+              ".row > [class*=\"col\"]": {
+                "padding-left": "1rem",
+                "padding-right": "1rem"
+              },
+              ".footer_col_logo": {
+                "width": "100%"
+              },
+              ".footer_col": {
+                "width": "33.3%"
+              },
+              ".image": {
+                "margin-bottom": "40px"
+              },
+              ".contacts": {
+                "margin-top": "30px",
+                "margin-bottom": "28px"
+              },
+              ".mbr-section-subtitle": {
+                "margin-bottom": "20px"
+              },
+              ".item-wrap": {
+                "line-height": "36px"
+              }
+            },
+            "@media (max-width: 767px)": {
+              ".row": {
+                "justify-content": "center",
+                "text-align": "center"
+              },
+              ".mbr-section-btn": {
+                "position": "absolute",
+                "right": "10px",
+                "left": "auto"
+              },
+              ".footer_col": {
+                "margin-top": "40px",
+                "width": "100%"
+              },
+              ".image": {
+                "margin": "auto",
+                "margin-top": "30px"
+              }
+            }
+          },
+          "_name": "footer2",
+          "_customHTML": "<section class=\"firmm4_footer2\" group=\"Footers\" data-bg-video=\"{{bg.type == 'video' && bg.value.url}}\" global once=\"footer\" mbr-class=\"{\n    'mbr-parallax-background': bg.parallax}\">\n\n    <mbr-parameters>\n        <header>Size</header>\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"10\" step=\"1\" value=\"5\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"10\" step=\"1\" value=\"5\">\n        <header>Show/Hide</header>\n        <input type=\"checkbox\" title=\"Title\" name=\"showTitle\">\n        <input type=\"checkbox\" title=\"Contacts\" name=\"showContacts\" checked>\n        <input type=\"checkbox\" title=\"Image\" name=\"showImage\">\n        <select name=\"showLogo\" title=\"Logo\">\n            <option value=\"1\">Logo</option>\n            <option value=\"2\" selected>Brand</option>\n        </select>\n        <input type=\"range\" inline title=\"Logo Size\" name=\"logoSize\" min=\"1\" max=\"10\" step=\"1\" value=\"1\" condition=\"showLogo == 1\">\n        <header>Background</header>\n        <fieldset type=\"background\" name=\"bg\" parallax>\n            <input type=\"image\" title=\"Image\" value=\"@ADDONS_PATH@/firmm4/components/_images/background/background.jpg\">\n            <input type=\"color\" title=\"Color\" value=\"#051441\" selected>\n        </fieldset>\n        <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\" checked>\n        <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#ffffff\" condition=\"overlay && bg.type !== 'color'\">\n        <input type=\"range\" inline title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.6\" condition=\"overlay && bg.type !== 'color'\">\n    </mbr-parameters>\n    \n    <div class=\"mbr-overlay\" mbr-if=\"overlay && bg.type !== 'color'\" opacity=\"{{overlayOpacity}}\" bg-color=\"{{overlayColor}}\"></div>\n    \n    <div mbr-class=\"{'container': !fullWidth, 'container-fluid': fullWidth}\">\n        <div class=\"row\">\n            <div class=\"footer_col_logo\">\n                <div class=\"logo_wrap\" mbr-if=\"showLogo == 1\">\n                    <a href=\"#\">\n                        <img src=\"@ADDONS_PATH@/firmm4/components/_images/logo.png\" alt=\"Mobirise\">\n                    </a>\n                </div>\n                <div class=\"brand_wrap\" mbr-if=\"showLogo == 2\">\n                    <h3 mbr-theme-style=\"display-5\" class=\"brand_name mb-0\" data-app-selector=\".brand_name\"><b>UChuuz Services</b></h3>\n                </div>\n                <div class=\"contacts\" mbr-if=\"showContacts\">\n                    <p class=\"contacts_mail mbr-fonts-style\" mbr-theme-style=\"display-4\" data-app-selector=\".contacts_mail\"><font color=\"#ffffff\"><b>123 Street Name</b></font></p>\n                    <p class=\"contacts_phone mbr-fonts-style\" mbr-theme-style=\"display-4\" data-app-selector=\".contacts_phone\"><font color=\"#ffffff\"><b>Singapore 123456</b></font></p>\n                </div>\n                <div class=\"image\" mbr-if=\"showImage\">\n                    <img src=\"@PROJECT_PATH@/assets/images/uchuuz%20services%20logo-400x431.png\" alt>\n                </div>\n            </div>   \n            <div class=\"footer_col\">\n                <h5 mbr-text class=\"mbr-section-subtitle mbr-fonts-style\" data-app-selector=\".mbr-section-subtitle\" mbr-theme-style=\"display-7\" mbr-if=\"showTitle\"><b>Help</b>\n                </h5>\n                <ul class=\"list mbr-fonts-style\" mbr-theme-style=\"display-4\" data-app-selector=\".list\" data-multiline mbr-article>\n                    <li class=\"mbr-text item-wrap\"><br></li>\n                    <li class=\"mbr-text item-wrap\"><br></li>\n                </ul>\n            </div>\n            <div class=\"footer_col\">\n                <h5 mbr-text class=\"mbr-section-subtitle mbr-fonts-style\" data-app-selector=\".mbr-section-subtitle\" mbr-theme-style=\"display-7\" mbr-if=\"showTitle\"><b>Extensions</b>\n                </h5>\n                <ul class=\"list mbr-fonts-style\" mbr-theme-style=\"display-4\" data-app-selector=\".list\" data-multiline mbr-article>\n                    <li class=\"mbr-text item-wrap\">Contact Us</li><li class=\"mbr-text item-wrap\">FAQ</li>\n                </ul>\n            </div>\n            <div class=\"footer_col\">\n                <h5 mbr-text class=\"mbr-section-subtitle mbr-fonts-style\" data-app-selector=\".mbr-section-subtitle\" mbr-theme-style=\"display-7\" mbr-if=\"showTitle\">\n                    <b>App</b></h5>\n                <ul class=\"list mbr-fonts-style\" mbr-theme-style=\"display-4\" data-app-selector=\".list\" data-multiline mbr-article>\n                    <li class=\"mbr-text item-wrap\">About Us</li>\n                    <li class=\"mbr-text item-wrap\">News</li>\n                    <li class=\"mbr-text item-wrap\">Site info</li>\n                </ul>\n            </div>\n        </div>\n    </div>\n</section>",
+          "_cid": "sAiENL4Zwm",
+          "_protectedParams": [],
+          "_global": true,
+          "_once": "footer",
+          "_params": {},
+          "_anchor": "footer2-3b"
         }
       ]
     },
@@ -7306,6 +8726,148 @@
           "_global": false,
           "_once": false,
           "_params": {}
+        },
+        {
+          "alias": false,
+          "_styles": {
+            "padding-top": "(@paddingTop * 1rem)",
+            "padding-bottom": "(@paddingBottom * 1rem)",
+            "& when (@bg-type = 'image')": {
+              "background-image": "url(@bg-value)"
+            },
+            "& when (@bg-type = 'color')": {
+              "background-color": "@bg-value"
+            },
+            ".footer_col_logo": {
+              "width": "40%"
+            },
+            ".footer_col": {
+              "width": "20%"
+            },
+            ".list": {
+              "list-style": "none",
+              "padding": "0",
+              "margin": "0",
+              "color": "#ffffff"
+            },
+            ".logo_wrap": {
+              "max-width": "(@logoSize * 10%)",
+              "img": {
+                "width": "100%",
+                "max-height": "150px"
+              }
+            },
+            ".brand_name": {
+              "color": "#ffffff"
+            },
+            ".contacts": {
+              "margin-top": "46px",
+              "p": {
+                "line-height": "33px",
+                "margin-bottom": "0"
+              },
+              "b": {
+                "color": "#ffffff"
+              }
+            },
+            ".mbr-section-subtitle": {
+              "font-weight": "700",
+              "line-height": "1.1em",
+              "margin-bottom": "43px",
+              "color": "#ffffff"
+            },
+            ".item-wrap": {
+              "line-height": "44px"
+            },
+            "a.text-white": {
+              "color": "#a99fc5 !important",
+              "&:hover": {
+                "color": "#ffffff !important"
+              }
+            },
+            ".item-wrap a, .contacts a": {
+              "display": "inline-block",
+              "line-height": "1.87",
+              "position": "relative",
+              "transition": "0.6s cubic-bezier(0.165, 0.84, 0.44, 1)",
+              "&:before": {
+                "width": "0",
+                "left": "auto",
+                "right": "0",
+                "bottom": "5px",
+                "height": "1px",
+                "content": "\"\"",
+                "position": "absolute",
+                "transition": "width 0.2s linear",
+                "background": "#ffffff"
+              },
+              "&:hover::before": {
+                "left": "0",
+                "width": "100%",
+                "right": "auto"
+              }
+            },
+            ".image": {
+              "margin-top": "30px",
+              "max-width": "200px",
+              "img": {
+                "width": "100%",
+                "object-fit": "contain"
+              }
+            },
+            "@media (max-width: 991px)": {
+              ".row > [class*=\"col\"]": {
+                "padding-left": "1rem",
+                "padding-right": "1rem"
+              },
+              ".footer_col_logo": {
+                "width": "100%"
+              },
+              ".footer_col": {
+                "width": "33.3%"
+              },
+              ".image": {
+                "margin-bottom": "40px"
+              },
+              ".contacts": {
+                "margin-top": "30px",
+                "margin-bottom": "28px"
+              },
+              ".mbr-section-subtitle": {
+                "margin-bottom": "20px"
+              },
+              ".item-wrap": {
+                "line-height": "36px"
+              }
+            },
+            "@media (max-width: 767px)": {
+              ".row": {
+                "justify-content": "center",
+                "text-align": "center"
+              },
+              ".mbr-section-btn": {
+                "position": "absolute",
+                "right": "10px",
+                "left": "auto"
+              },
+              ".footer_col": {
+                "margin-top": "40px",
+                "width": "100%"
+              },
+              ".image": {
+                "margin": "auto",
+                "margin-top": "30px"
+              }
+            }
+          },
+          "_name": "footer2",
+          "_customHTML": "<section class=\"firmm4_footer2\" group=\"Footers\" data-bg-video=\"{{bg.type == 'video' && bg.value.url}}\" global once=\"footer\" mbr-class=\"{\n    'mbr-parallax-background': bg.parallax}\">\n\n    <mbr-parameters>\n        <header>Size</header>\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"10\" step=\"1\" value=\"5\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"10\" step=\"1\" value=\"5\">\n        <header>Show/Hide</header>\n        <input type=\"checkbox\" title=\"Title\" name=\"showTitle\">\n        <input type=\"checkbox\" title=\"Contacts\" name=\"showContacts\" checked>\n        <input type=\"checkbox\" title=\"Image\" name=\"showImage\">\n        <select name=\"showLogo\" title=\"Logo\">\n            <option value=\"1\">Logo</option>\n            <option value=\"2\" selected>Brand</option>\n        </select>\n        <input type=\"range\" inline title=\"Logo Size\" name=\"logoSize\" min=\"1\" max=\"10\" step=\"1\" value=\"1\" condition=\"showLogo == 1\">\n        <header>Background</header>\n        <fieldset type=\"background\" name=\"bg\" parallax>\n            <input type=\"image\" title=\"Image\" value=\"@ADDONS_PATH@/firmm4/components/_images/background/background.jpg\">\n            <input type=\"color\" title=\"Color\" value=\"#051441\" selected>\n        </fieldset>\n        <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\" checked>\n        <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#ffffff\" condition=\"overlay && bg.type !== 'color'\">\n        <input type=\"range\" inline title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.6\" condition=\"overlay && bg.type !== 'color'\">\n    </mbr-parameters>\n    \n    <div class=\"mbr-overlay\" mbr-if=\"overlay && bg.type !== 'color'\" opacity=\"{{overlayOpacity}}\" bg-color=\"{{overlayColor}}\"></div>\n    \n    <div mbr-class=\"{'container': !fullWidth, 'container-fluid': fullWidth}\">\n        <div class=\"row\">\n            <div class=\"footer_col_logo\">\n                <div class=\"logo_wrap\" mbr-if=\"showLogo == 1\">\n                    <a href=\"#\">\n                        <img src=\"@ADDONS_PATH@/firmm4/components/_images/logo.png\" alt=\"Mobirise\">\n                    </a>\n                </div>\n                <div class=\"brand_wrap\" mbr-if=\"showLogo == 2\">\n                    <h3 mbr-theme-style=\"display-5\" class=\"brand_name mb-0\" data-app-selector=\".brand_name\"><b>UChuuz Services</b></h3>\n                </div>\n                <div class=\"contacts\" mbr-if=\"showContacts\">\n                    <p class=\"contacts_mail mbr-fonts-style\" mbr-theme-style=\"display-4\" data-app-selector=\".contacts_mail\"><font color=\"#ffffff\"><b>123 Street Name</b></font></p>\n                    <p class=\"contacts_phone mbr-fonts-style\" mbr-theme-style=\"display-4\" data-app-selector=\".contacts_phone\"><font color=\"#ffffff\"><b>Singapore 123456</b></font></p>\n                </div>\n                <div class=\"image\" mbr-if=\"showImage\">\n                    <img src=\"@PROJECT_PATH@/assets/images/uchuuz%20services%20logo-400x431.png\" alt>\n                </div>\n            </div>   \n            <div class=\"footer_col\">\n                <h5 mbr-text class=\"mbr-section-subtitle mbr-fonts-style\" data-app-selector=\".mbr-section-subtitle\" mbr-theme-style=\"display-7\" mbr-if=\"showTitle\"><b>Help</b>\n                </h5>\n                <ul class=\"list mbr-fonts-style\" mbr-theme-style=\"display-4\" data-app-selector=\".list\" data-multiline mbr-article>\n                    <li class=\"mbr-text item-wrap\"><br></li>\n                    <li class=\"mbr-text item-wrap\"><br></li>\n                </ul>\n            </div>\n            <div class=\"footer_col\">\n                <h5 mbr-text class=\"mbr-section-subtitle mbr-fonts-style\" data-app-selector=\".mbr-section-subtitle\" mbr-theme-style=\"display-7\" mbr-if=\"showTitle\"><b>Extensions</b>\n                </h5>\n                <ul class=\"list mbr-fonts-style\" mbr-theme-style=\"display-4\" data-app-selector=\".list\" data-multiline mbr-article>\n                    <li class=\"mbr-text item-wrap\">Contact Us</li><li class=\"mbr-text item-wrap\">FAQ</li>\n                </ul>\n            </div>\n            <div class=\"footer_col\">\n                <h5 mbr-text class=\"mbr-section-subtitle mbr-fonts-style\" data-app-selector=\".mbr-section-subtitle\" mbr-theme-style=\"display-7\" mbr-if=\"showTitle\">\n                    <b>App</b></h5>\n                <ul class=\"list mbr-fonts-style\" mbr-theme-style=\"display-4\" data-app-selector=\".list\" data-multiline mbr-article>\n                    <li class=\"mbr-text item-wrap\">About Us</li>\n                    <li class=\"mbr-text item-wrap\">News</li>\n                    <li class=\"mbr-text item-wrap\">Site info</li>\n                </ul>\n            </div>\n        </div>\n    </div>\n</section>",
+          "_cid": "sAiENL4Zwm",
+          "_protectedParams": [],
+          "_global": true,
+          "_once": "footer",
+          "_params": {},
+          "_anchor": "footer2-3b"
         }
       ]
     },
@@ -8003,6 +9565,148 @@
           "_once": false,
           "_params": {},
           "_anchor": "features16-2x"
+        },
+        {
+          "alias": false,
+          "_styles": {
+            "padding-top": "(@paddingTop * 1rem)",
+            "padding-bottom": "(@paddingBottom * 1rem)",
+            "& when (@bg-type = 'image')": {
+              "background-image": "url(@bg-value)"
+            },
+            "& when (@bg-type = 'color')": {
+              "background-color": "@bg-value"
+            },
+            ".footer_col_logo": {
+              "width": "40%"
+            },
+            ".footer_col": {
+              "width": "20%"
+            },
+            ".list": {
+              "list-style": "none",
+              "padding": "0",
+              "margin": "0",
+              "color": "#ffffff"
+            },
+            ".logo_wrap": {
+              "max-width": "(@logoSize * 10%)",
+              "img": {
+                "width": "100%",
+                "max-height": "150px"
+              }
+            },
+            ".brand_name": {
+              "color": "#ffffff"
+            },
+            ".contacts": {
+              "margin-top": "46px",
+              "p": {
+                "line-height": "33px",
+                "margin-bottom": "0"
+              },
+              "b": {
+                "color": "#ffffff"
+              }
+            },
+            ".mbr-section-subtitle": {
+              "font-weight": "700",
+              "line-height": "1.1em",
+              "margin-bottom": "43px",
+              "color": "#ffffff"
+            },
+            ".item-wrap": {
+              "line-height": "44px"
+            },
+            "a.text-white": {
+              "color": "#a99fc5 !important",
+              "&:hover": {
+                "color": "#ffffff !important"
+              }
+            },
+            ".item-wrap a, .contacts a": {
+              "display": "inline-block",
+              "line-height": "1.87",
+              "position": "relative",
+              "transition": "0.6s cubic-bezier(0.165, 0.84, 0.44, 1)",
+              "&:before": {
+                "width": "0",
+                "left": "auto",
+                "right": "0",
+                "bottom": "5px",
+                "height": "1px",
+                "content": "\"\"",
+                "position": "absolute",
+                "transition": "width 0.2s linear",
+                "background": "#ffffff"
+              },
+              "&:hover::before": {
+                "left": "0",
+                "width": "100%",
+                "right": "auto"
+              }
+            },
+            ".image": {
+              "margin-top": "30px",
+              "max-width": "200px",
+              "img": {
+                "width": "100%",
+                "object-fit": "contain"
+              }
+            },
+            "@media (max-width: 991px)": {
+              ".row > [class*=\"col\"]": {
+                "padding-left": "1rem",
+                "padding-right": "1rem"
+              },
+              ".footer_col_logo": {
+                "width": "100%"
+              },
+              ".footer_col": {
+                "width": "33.3%"
+              },
+              ".image": {
+                "margin-bottom": "40px"
+              },
+              ".contacts": {
+                "margin-top": "30px",
+                "margin-bottom": "28px"
+              },
+              ".mbr-section-subtitle": {
+                "margin-bottom": "20px"
+              },
+              ".item-wrap": {
+                "line-height": "36px"
+              }
+            },
+            "@media (max-width: 767px)": {
+              ".row": {
+                "justify-content": "center",
+                "text-align": "center"
+              },
+              ".mbr-section-btn": {
+                "position": "absolute",
+                "right": "10px",
+                "left": "auto"
+              },
+              ".footer_col": {
+                "margin-top": "40px",
+                "width": "100%"
+              },
+              ".image": {
+                "margin": "auto",
+                "margin-top": "30px"
+              }
+            }
+          },
+          "_name": "footer2",
+          "_customHTML": "<section class=\"firmm4_footer2\" group=\"Footers\" data-bg-video=\"{{bg.type == 'video' && bg.value.url}}\" global once=\"footer\" mbr-class=\"{\n    'mbr-parallax-background': bg.parallax}\">\n\n    <mbr-parameters>\n        <header>Size</header>\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"10\" step=\"1\" value=\"5\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"10\" step=\"1\" value=\"5\">\n        <header>Show/Hide</header>\n        <input type=\"checkbox\" title=\"Title\" name=\"showTitle\">\n        <input type=\"checkbox\" title=\"Contacts\" name=\"showContacts\" checked>\n        <input type=\"checkbox\" title=\"Image\" name=\"showImage\">\n        <select name=\"showLogo\" title=\"Logo\">\n            <option value=\"1\">Logo</option>\n            <option value=\"2\" selected>Brand</option>\n        </select>\n        <input type=\"range\" inline title=\"Logo Size\" name=\"logoSize\" min=\"1\" max=\"10\" step=\"1\" value=\"1\" condition=\"showLogo == 1\">\n        <header>Background</header>\n        <fieldset type=\"background\" name=\"bg\" parallax>\n            <input type=\"image\" title=\"Image\" value=\"@ADDONS_PATH@/firmm4/components/_images/background/background.jpg\">\n            <input type=\"color\" title=\"Color\" value=\"#051441\" selected>\n        </fieldset>\n        <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\" checked>\n        <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#ffffff\" condition=\"overlay && bg.type !== 'color'\">\n        <input type=\"range\" inline title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.6\" condition=\"overlay && bg.type !== 'color'\">\n    </mbr-parameters>\n    \n    <div class=\"mbr-overlay\" mbr-if=\"overlay && bg.type !== 'color'\" opacity=\"{{overlayOpacity}}\" bg-color=\"{{overlayColor}}\"></div>\n    \n    <div mbr-class=\"{'container': !fullWidth, 'container-fluid': fullWidth}\">\n        <div class=\"row\">\n            <div class=\"footer_col_logo\">\n                <div class=\"logo_wrap\" mbr-if=\"showLogo == 1\">\n                    <a href=\"#\">\n                        <img src=\"@ADDONS_PATH@/firmm4/components/_images/logo.png\" alt=\"Mobirise\">\n                    </a>\n                </div>\n                <div class=\"brand_wrap\" mbr-if=\"showLogo == 2\">\n                    <h3 mbr-theme-style=\"display-5\" class=\"brand_name mb-0\" data-app-selector=\".brand_name\"><b>UChuuz Services</b></h3>\n                </div>\n                <div class=\"contacts\" mbr-if=\"showContacts\">\n                    <p class=\"contacts_mail mbr-fonts-style\" mbr-theme-style=\"display-4\" data-app-selector=\".contacts_mail\"><font color=\"#ffffff\"><b>123 Street Name</b></font></p>\n                    <p class=\"contacts_phone mbr-fonts-style\" mbr-theme-style=\"display-4\" data-app-selector=\".contacts_phone\"><font color=\"#ffffff\"><b>Singapore 123456</b></font></p>\n                </div>\n                <div class=\"image\" mbr-if=\"showImage\">\n                    <img src=\"@PROJECT_PATH@/assets/images/uchuuz%20services%20logo-400x431.png\" alt>\n                </div>\n            </div>   \n            <div class=\"footer_col\">\n                <h5 mbr-text class=\"mbr-section-subtitle mbr-fonts-style\" data-app-selector=\".mbr-section-subtitle\" mbr-theme-style=\"display-7\" mbr-if=\"showTitle\"><b>Help</b>\n                </h5>\n                <ul class=\"list mbr-fonts-style\" mbr-theme-style=\"display-4\" data-app-selector=\".list\" data-multiline mbr-article>\n                    <li class=\"mbr-text item-wrap\"><br></li>\n                    <li class=\"mbr-text item-wrap\"><br></li>\n                </ul>\n            </div>\n            <div class=\"footer_col\">\n                <h5 mbr-text class=\"mbr-section-subtitle mbr-fonts-style\" data-app-selector=\".mbr-section-subtitle\" mbr-theme-style=\"display-7\" mbr-if=\"showTitle\"><b>Extensions</b>\n                </h5>\n                <ul class=\"list mbr-fonts-style\" mbr-theme-style=\"display-4\" data-app-selector=\".list\" data-multiline mbr-article>\n                    <li class=\"mbr-text item-wrap\">Contact Us</li><li class=\"mbr-text item-wrap\">FAQ</li>\n                </ul>\n            </div>\n            <div class=\"footer_col\">\n                <h5 mbr-text class=\"mbr-section-subtitle mbr-fonts-style\" data-app-selector=\".mbr-section-subtitle\" mbr-theme-style=\"display-7\" mbr-if=\"showTitle\">\n                    <b>App</b></h5>\n                <ul class=\"list mbr-fonts-style\" mbr-theme-style=\"display-4\" data-app-selector=\".list\" data-multiline mbr-article>\n                    <li class=\"mbr-text item-wrap\">About Us</li>\n                    <li class=\"mbr-text item-wrap\">News</li>\n                    <li class=\"mbr-text item-wrap\">Site info</li>\n                </ul>\n            </div>\n        </div>\n    </div>\n</section>",
+          "_cid": "sAiENL4Zwm",
+          "_protectedParams": [],
+          "_global": true,
+          "_once": "footer",
+          "_params": {},
+          "_anchor": "footer2-3b"
         }
       ]
     },
@@ -8603,6 +10307,148 @@
           "_global": false,
           "_once": false,
           "_params": {}
+        },
+        {
+          "alias": false,
+          "_styles": {
+            "padding-top": "(@paddingTop * 1rem)",
+            "padding-bottom": "(@paddingBottom * 1rem)",
+            "& when (@bg-type = 'image')": {
+              "background-image": "url(@bg-value)"
+            },
+            "& when (@bg-type = 'color')": {
+              "background-color": "@bg-value"
+            },
+            ".footer_col_logo": {
+              "width": "40%"
+            },
+            ".footer_col": {
+              "width": "20%"
+            },
+            ".list": {
+              "list-style": "none",
+              "padding": "0",
+              "margin": "0",
+              "color": "#ffffff"
+            },
+            ".logo_wrap": {
+              "max-width": "(@logoSize * 10%)",
+              "img": {
+                "width": "100%",
+                "max-height": "150px"
+              }
+            },
+            ".brand_name": {
+              "color": "#ffffff"
+            },
+            ".contacts": {
+              "margin-top": "46px",
+              "p": {
+                "line-height": "33px",
+                "margin-bottom": "0"
+              },
+              "b": {
+                "color": "#ffffff"
+              }
+            },
+            ".mbr-section-subtitle": {
+              "font-weight": "700",
+              "line-height": "1.1em",
+              "margin-bottom": "43px",
+              "color": "#ffffff"
+            },
+            ".item-wrap": {
+              "line-height": "44px"
+            },
+            "a.text-white": {
+              "color": "#a99fc5 !important",
+              "&:hover": {
+                "color": "#ffffff !important"
+              }
+            },
+            ".item-wrap a, .contacts a": {
+              "display": "inline-block",
+              "line-height": "1.87",
+              "position": "relative",
+              "transition": "0.6s cubic-bezier(0.165, 0.84, 0.44, 1)",
+              "&:before": {
+                "width": "0",
+                "left": "auto",
+                "right": "0",
+                "bottom": "5px",
+                "height": "1px",
+                "content": "\"\"",
+                "position": "absolute",
+                "transition": "width 0.2s linear",
+                "background": "#ffffff"
+              },
+              "&:hover::before": {
+                "left": "0",
+                "width": "100%",
+                "right": "auto"
+              }
+            },
+            ".image": {
+              "margin-top": "30px",
+              "max-width": "200px",
+              "img": {
+                "width": "100%",
+                "object-fit": "contain"
+              }
+            },
+            "@media (max-width: 991px)": {
+              ".row > [class*=\"col\"]": {
+                "padding-left": "1rem",
+                "padding-right": "1rem"
+              },
+              ".footer_col_logo": {
+                "width": "100%"
+              },
+              ".footer_col": {
+                "width": "33.3%"
+              },
+              ".image": {
+                "margin-bottom": "40px"
+              },
+              ".contacts": {
+                "margin-top": "30px",
+                "margin-bottom": "28px"
+              },
+              ".mbr-section-subtitle": {
+                "margin-bottom": "20px"
+              },
+              ".item-wrap": {
+                "line-height": "36px"
+              }
+            },
+            "@media (max-width: 767px)": {
+              ".row": {
+                "justify-content": "center",
+                "text-align": "center"
+              },
+              ".mbr-section-btn": {
+                "position": "absolute",
+                "right": "10px",
+                "left": "auto"
+              },
+              ".footer_col": {
+                "margin-top": "40px",
+                "width": "100%"
+              },
+              ".image": {
+                "margin": "auto",
+                "margin-top": "30px"
+              }
+            }
+          },
+          "_name": "footer2",
+          "_customHTML": "<section class=\"firmm4_footer2\" group=\"Footers\" data-bg-video=\"{{bg.type == 'video' && bg.value.url}}\" global once=\"footer\" mbr-class=\"{\n    'mbr-parallax-background': bg.parallax}\">\n\n    <mbr-parameters>\n        <header>Size</header>\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"10\" step=\"1\" value=\"5\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"10\" step=\"1\" value=\"5\">\n        <header>Show/Hide</header>\n        <input type=\"checkbox\" title=\"Title\" name=\"showTitle\">\n        <input type=\"checkbox\" title=\"Contacts\" name=\"showContacts\" checked>\n        <input type=\"checkbox\" title=\"Image\" name=\"showImage\">\n        <select name=\"showLogo\" title=\"Logo\">\n            <option value=\"1\">Logo</option>\n            <option value=\"2\" selected>Brand</option>\n        </select>\n        <input type=\"range\" inline title=\"Logo Size\" name=\"logoSize\" min=\"1\" max=\"10\" step=\"1\" value=\"1\" condition=\"showLogo == 1\">\n        <header>Background</header>\n        <fieldset type=\"background\" name=\"bg\" parallax>\n            <input type=\"image\" title=\"Image\" value=\"@ADDONS_PATH@/firmm4/components/_images/background/background.jpg\">\n            <input type=\"color\" title=\"Color\" value=\"#051441\" selected>\n        </fieldset>\n        <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\" checked>\n        <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#ffffff\" condition=\"overlay && bg.type !== 'color'\">\n        <input type=\"range\" inline title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.6\" condition=\"overlay && bg.type !== 'color'\">\n    </mbr-parameters>\n    \n    <div class=\"mbr-overlay\" mbr-if=\"overlay && bg.type !== 'color'\" opacity=\"{{overlayOpacity}}\" bg-color=\"{{overlayColor}}\"></div>\n    \n    <div mbr-class=\"{'container': !fullWidth, 'container-fluid': fullWidth}\">\n        <div class=\"row\">\n            <div class=\"footer_col_logo\">\n                <div class=\"logo_wrap\" mbr-if=\"showLogo == 1\">\n                    <a href=\"#\">\n                        <img src=\"@ADDONS_PATH@/firmm4/components/_images/logo.png\" alt=\"Mobirise\">\n                    </a>\n                </div>\n                <div class=\"brand_wrap\" mbr-if=\"showLogo == 2\">\n                    <h3 mbr-theme-style=\"display-5\" class=\"brand_name mb-0\" data-app-selector=\".brand_name\"><b>UChuuz Services</b></h3>\n                </div>\n                <div class=\"contacts\" mbr-if=\"showContacts\">\n                    <p class=\"contacts_mail mbr-fonts-style\" mbr-theme-style=\"display-4\" data-app-selector=\".contacts_mail\"><font color=\"#ffffff\"><b>123 Street Name</b></font></p>\n                    <p class=\"contacts_phone mbr-fonts-style\" mbr-theme-style=\"display-4\" data-app-selector=\".contacts_phone\"><font color=\"#ffffff\"><b>Singapore 123456</b></font></p>\n                </div>\n                <div class=\"image\" mbr-if=\"showImage\">\n                    <img src=\"@PROJECT_PATH@/assets/images/uchuuz%20services%20logo-400x431.png\" alt>\n                </div>\n            </div>   \n            <div class=\"footer_col\">\n                <h5 mbr-text class=\"mbr-section-subtitle mbr-fonts-style\" data-app-selector=\".mbr-section-subtitle\" mbr-theme-style=\"display-7\" mbr-if=\"showTitle\"><b>Help</b>\n                </h5>\n                <ul class=\"list mbr-fonts-style\" mbr-theme-style=\"display-4\" data-app-selector=\".list\" data-multiline mbr-article>\n                    <li class=\"mbr-text item-wrap\"><br></li>\n                    <li class=\"mbr-text item-wrap\"><br></li>\n                </ul>\n            </div>\n            <div class=\"footer_col\">\n                <h5 mbr-text class=\"mbr-section-subtitle mbr-fonts-style\" data-app-selector=\".mbr-section-subtitle\" mbr-theme-style=\"display-7\" mbr-if=\"showTitle\"><b>Extensions</b>\n                </h5>\n                <ul class=\"list mbr-fonts-style\" mbr-theme-style=\"display-4\" data-app-selector=\".list\" data-multiline mbr-article>\n                    <li class=\"mbr-text item-wrap\">Contact Us</li><li class=\"mbr-text item-wrap\">FAQ</li>\n                </ul>\n            </div>\n            <div class=\"footer_col\">\n                <h5 mbr-text class=\"mbr-section-subtitle mbr-fonts-style\" data-app-selector=\".mbr-section-subtitle\" mbr-theme-style=\"display-7\" mbr-if=\"showTitle\">\n                    <b>App</b></h5>\n                <ul class=\"list mbr-fonts-style\" mbr-theme-style=\"display-4\" data-app-selector=\".list\" data-multiline mbr-article>\n                    <li class=\"mbr-text item-wrap\">About Us</li>\n                    <li class=\"mbr-text item-wrap\">News</li>\n                    <li class=\"mbr-text item-wrap\">Site info</li>\n                </ul>\n            </div>\n        </div>\n    </div>\n</section>",
+          "_cid": "sAiENL4Zwm",
+          "_protectedParams": [],
+          "_global": true,
+          "_once": "footer",
+          "_params": {},
+          "_anchor": "footer2-3b"
         }
       ]
     }
