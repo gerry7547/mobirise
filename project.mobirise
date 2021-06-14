@@ -46,7 +46,7 @@
       }
     ],
     "imageResize": true,
-    "uniqCompNum": 117,
+    "uniqCompNum": 119,
     "versionPublish": "5.3.9",
     "screenshot": "screenshot.png",
     "publishChangesOnly": true,
@@ -8601,104 +8601,6 @@
           "_anchor": "contacts1-30",
           "_protectedParams": [],
           "_global": false,
-          "_once": false,
-          "_params": {}
-        },
-        {
-          "_name": "footer02",
-          "_customHTML": "<section class=\"footer02 photom4_footer02\" group=\"Footers\" global mbr-class=\"{'mbr-reveal': reveal, 'mbr-parallax-background': bg.parallax}\">\n\n    <mbr-parameters>\n        <!-- Block parameters controls (Blue \"Gear\" panel) -->\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"8\" step=\"1\" value=\"4\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"8\" step=\"1\" value=\"3\">\n\n        <input type=\"checkbox\" title=\"Show Text\" name=\"underForm\" checked>\n        <select name=\"columns\" title=\"Columns\">\n            <option value=\"2\">2</option>\n            <option value=\"3\">3</option>\n            <option value=\"4\" selected>4</option>\n        </select>\n        <!-- <input type=\"checkbox\" title=\"Show Copyright\" name=\"showCopyright\" checked> -->\n        <select title=\"Icons\" name=\"iconsCount\">\n            <option value=\"0\" selected>0</option>\n            <option value=\"1\">1</option>\n            <option value=\"2\">2</option>\n            <option value=\"3\">3</option>\n            <option value=\"4\">4</option>\n            <option value=\"5\">5</option>\n            <option value=\"6\">6</option>\n        </select>\n        <select name=\"iconsAlign\" title=\"Icons Align\">\n            <option value=\"left\" selected>left</option>\n            <option value=\"center\">center</option>\n            <option value=\"right\">right</option>\n        </select>\n        <input type=\"checkbox\" title=\"Reveal effect\" name=\"reveal\">\n        <fieldset type=\"background\" name=\"bg\" parallax>\n            <input type=\"image\" title=\"Background Image\" value=\"@ADDONS_PATH@/photom4/components/_images/background1.jpg\">\n            <input type=\"color\" title=\"Background Color\" value=\"#767676\" selected>\n        </fieldset>\n        <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\" checked>\n        <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#3C3C3C\" condition=\"overlay && bg.type !== 'color'\">\n        <input type=\"range\" inline title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.5\" condition=\"overlay && bg.type !== 'color'\">\n        <!-- End block parameters -->\n    </mbr-parameters>\n\n    <div class=\"mbr-overlay\" mbr-if=\"overlay && bg.type !== 'color'\" opacity=\"{{overlayOpacity}}\" bg-color=\"{{overlayColor}}\"></div>\n\n    <div class=\"container\">\n        <div class=\"row content mbr-white justify-content-center\">\n            <div mbr-class=\"{'col-lg-3 col-md-6':columns==4,'col-lg-4 col-md-12 mb-md-4':columns==3,'col-md-6':columns<3}\">\n                <h2 class=\"mb-1 footer-main-title mbr-fonts-style\" mbr-theme-style=\"display-5\" data-app-selector=\".footer-main-title\"></h2>\n                <p class=\"mbr-text mbr-fonts-style form-text mt-2\" mbr-theme-style=\"display-4\" data-app-selector=\".form-text\" mbr-if=\"underForm\"></p>\n            </div>\n\n            <div class=\"col-md-6\" mbr-class=\"{'col-lg-3':columns==4,'col-lg-4':columns==3}\">\n                <h3 class=\"mb-4 mbr-fonts-style footer-title\" mbr-theme-style=\"display-4\" data-app-selector=\".footer-title\">Support</h3>\n                <div class=\"mbr-footer-list mbr-fonts-style\" mbr-theme-style=\"display-7\" data-app-selector=\".mbr-footer-list\" data-multiline mbr-article>\n                    <ul class=\"list\">\n                        <li>Contact us</li>\n                        <li>FAQ</li>\n                        <li><br></li>\n                    </ul>\n                </div>\n                <div class=\"social-list pl-0 mb-0\" mbr-if=\"iconsCount > 0\">\n                    <div class=\"soc-item\" mbr-if=\"iconsCount>0\">\n                        <a href=\"https://twitter.com/mobirise\" target=\"_blank\">\n                            <span mbr-icon class=\"socicon-twitter socicon mbr-iconfont mbr-iconfont-social\"></span>\n                        </a>\n                    </div>\n                    <div class=\"soc-item\" mbr-if=\"iconsCount>1\">\n                        <a href=\"https://www.facebook.com/pages/Mobirise/1616226671953247\" target=\"_blank\">\n                            <span mbr-icon class=\"socicon-facebook socicon mbr-iconfont mbr-iconfont-social\"></span>\n                        </a>\n                    </div>\n                    <div class=\"soc-item\" mbr-if=\"iconsCount>2\">\n                        <a href=\"https://www.youtube.com/c/mobirise\" target=\"_blank\">\n                            <span mbr-icon class=\"socicon-youtube socicon mbr-iconfont mbr-iconfont-social\"></span>\n                        </a>\n                    </div>\n                    <div class=\"soc-item\" mbr-if=\"iconsCount>3\">\n                        <a href=\"https://instagram.com/mobirise\" target=\"_blank\">\n                            <span mbr-icon class=\"socicon-instagram socicon mbr-iconfont mbr-iconfont-social\"></span>\n                        </a>\n                    </div>\n                    <div class=\"soc-item\" mbr-if=\"iconsCount>4\">\n                        <a href=\"https://plus.google.com/u/0/+Mobirise\" target=\"_blank\">\n                            <span mbr-icon class=\"socicon-googleplus socicon mbr-iconfont mbr-iconfont-social\"></span>\n                        </a>\n                    </div>\n                    <div class=\"soc-item\" mbr-if=\"iconsCount>5\">\n                        <a href=\"https://www.behance.net/Mobirise\" target=\"_blank\">\n                            <span mbr-icon class=\"socicon-behance socicon mbr-iconfont mbr-iconfont-social\"></span>\n                        </a>\n                    </div>\n                </div>\n            </div>\n            <div class=\"col-md-6\" mbr-if=\"columns>2\" mbr-class=\"{'col-lg-3':columns==4,'col-lg-4':columns==3}\">\n                <h3 class=\"mb-4 footer-title mbr-fonts-style\" mbr-theme-style=\"display-4\" data-app-selector=\".footer-title\">Company</h3>\n                <div class=\"mbr-footer-list mbr-fonts-style\" mbr-theme-style=\"display-7\" data-app-selector=\".mbr-footer-list\" data-multiline mbr-article>\n                    <ul class=\"list\">\n                        <li>About Us</li><li>News</li><li>Site Info</li>\n                        <li><br></li>\n                    </ul>\n                </div>\n            </div>\n            <div class=\"col-md-6\" mbr-if=\"columns>3\" mbr-class=\"{'col-lg-3':columns==4,'col-lg-4':columns==3}\">\n                <h3 class=\"mb-4 footer-title mbr-fonts-style\" mbr-theme-style=\"display-4\" data-app-selector=\".footer-title\">UChuuz Services</h3>\n                <div class=\"mbr-footer-list mbr-fonts-style\" mbr-theme-style=\"display-7\" data-app-selector=\".mbr-footer-list\" data-multiline mbr-article>\n                    <ul class=\"list\">\n                        <li>123 Street Name</li><li>Singapore 123456</li>\n                    </ul>\n                </div>\n            </div>\n        </div>\n    </div>\n</section>",
-          "_styles": {
-            "padding-top": "(@paddingTop * 15px)",
-            "padding-bottom": "(@paddingBottom * 15px)",
-            "& when (@bg-type = 'image')": {
-              "background-image": "url(@bg-value)"
-            },
-            "& when (@bg-type = 'color')": {
-              "background-color": "@bg-value"
-            },
-            ".content": {
-              "@media (max-width: 767px)": {
-                "text-align": "center",
-                "> div:not(:last-child)": {
-                  "margin-bottom": "2rem"
-                }
-              }
-            },
-            ".img-logo": {
-              "img": {
-                "height": "6rem"
-              }
-            },
-            ".social-list": {
-              "padding-left": "0",
-              "margin-bottom": "0",
-              "display": "flex",
-              "-webkit-flex-wrap": "wrap",
-              "flex-wrap": "wrap",
-              "& when (@iconsAlign = 'left')": {
-                "-webkit-justify-content": "flex-start",
-                "justify-content": "flex-start"
-              },
-              "& when (@iconsAlign = 'center')": {
-                "-webkit-justify-content": "center",
-                "justify-content": "center"
-              },
-              "& when (@iconsAlign = 'right')": {
-                "-webkit-justify-content": "flex-end",
-                "justify-content": "flex-end"
-              },
-              ".mbr-iconfont-social": {
-                "font-size": "1rem",
-                "color": "#fff"
-              },
-              ".mbr-iconfont:before": {
-                "padding": "0.5rem",
-                "border": "1px solid",
-                "border-radius": "100px"
-              },
-              ".soc-item": {
-                "margin": "0 3px 15px 3px"
-              },
-              "a": {
-                "margin": "0",
-                "opacity": "0.7",
-                "-webkit-transition": "0.2s linear",
-                "transition": "0.2s linear",
-                "&:hover": {
-                  "opacity": "1"
-                }
-              }
-            },
-            ".list": {
-              "list-style-type": "none",
-              "padding": "0",
-              "li": {
-                "padding-bottom": "0.5rem",
-                "&:last-child": {
-                  "padding-bottom": "0"
-                }
-              }
-            },
-            ".mbr-footer-list, .form-text": {
-              "color": "#cccccc"
-            },
-            "@media (max-width: 767px)": {
-              ".mbr-footer-list, .form-text, .footer-title, .footer-main-title, .form-text, .list": {
-                "text-align": "center !important"
-              },
-              ".mbr-form, .social-list": {
-                "-webkit-justify-content": "center !important",
-                "justify-content": "center !important"
-              }
-            },
-            ".footer-main-title": {
-              "color": "#ffffff"
-            }
-          },
-          "_cid": "sAiyYprD6t",
-          "_anchor": "footer02-38",
-          "_protectedParams": [],
-          "_global": true,
           "_once": false,
           "_params": {}
         }
